@@ -7,9 +7,10 @@ export default function Home() {
           fontSize: "200px",
           fontWeight: 900,
         }}
-        className="leading-none"
+        className="leading-tight"
       >
         Vaibhav
+        <span className="text-base font-bold">Kesarwani</span>
       </span>
     </div>
   );
