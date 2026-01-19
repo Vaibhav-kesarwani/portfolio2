@@ -1,16 +1,17 @@
 import { ThemeProvider } from "@/components/theme-provider";
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const cabinet = localFont({
+  src: [
+    {
+      path: "../public/fonts/CabinetGrotesk-Variable.woff2",
+      weight: "100 900",
+    },
+  ],
+  variable: "--font-cabinet",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${cabinet.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
