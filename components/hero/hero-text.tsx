@@ -1,11 +1,43 @@
+"use client";
+
+import { easeOut, motion } from "framer-motion";
 import { Layers, MapPin } from "lucide-react";
 import HeroCtaCard from "../vaibhav-ui/hero-cta-card";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.18,
+      ease: easeOut,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: easeOut,
+    },
+  },
+};
 
 export default function HeroText() {
   return (
     <section className="flex h-screen flex-col items-center px-6">
-      <div className="flex flex-col items-center justify-center flex-1">
-        <div
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="flex flex-1 flex-col items-center justify-center"
+      >
+        <motion.div
+          variants={item}
           style={{
             fontFamily: "var(--font-cabinet)",
             fontSize: "200px",
@@ -14,19 +46,22 @@ export default function HeroText() {
           className="tracking-normal"
         >
           Vaibhav
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          variants={item}
           style={{
             fontFamily: "sans-serif",
             fontSize: "25px",
+            letterSpacing: "5px",
           }}
-          className="uppercase -mt-10 tracking-widest font-normal opacity-40"
+          className="uppercase -mt-10 font-normal text-white/30"
         >
           I design and build products that
-        </div>
+        </motion.div>
 
-        <div
+        <motion.div
+          variants={item}
           style={{
             fontFamily: "cursive",
             fontSize: "70px",
@@ -34,8 +69,8 @@ export default function HeroText() {
           className="tracking-tighter font-medium"
         >
           deliver real impact.
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <div className="mb-12 flex w-full justify-between">
         <HeroCtaCard
@@ -44,6 +79,7 @@ export default function HeroText() {
           mainText="Based in Prayagraj,"
           secondText="INDIA"
         />
+
         <HeroCtaCard
           icon={Layers}
           iconColor="text-blue-500"
