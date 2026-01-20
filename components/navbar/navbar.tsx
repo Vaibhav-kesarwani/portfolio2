@@ -34,7 +34,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer
+                className={`shadow-inner shadow-black rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer
                 ${
                   isActive
                     ? "bg-white text-black"
@@ -50,8 +50,8 @@ export default function Navbar() {
 
           <Link
             href="/contact"
-            className="rounded-full bg-linear-to-r from-white via-neutral-100 to-white
-             px-4 py-2 text-sm font-semibold text-black shadow-inner
+            className="rounded-full bg-linear-to-tr from-white/60 via-neutral-300 to-white
+             px-4 py-2 text-sm font-semibold text-black shadow-inner shadow-black
              transition hover:brightness-95"
           >
             Book call
