@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from "./logo";
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -16,13 +16,7 @@ export default function Navbar() {
 
   return (
     <>
-      <Image
-        src={"/images/logo.png"}
-        alt="logg"
-        height={50}
-        width={50}
-        className="fixed top-5 left-5 z-50"
-      />
+      <Logo />
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
