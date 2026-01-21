@@ -54,8 +54,8 @@ export default function MainCard() {
           <PiStarFourFill className="h-4 w-4" />
         </div>
       </div>
-      <div className="grid grid-cols-2 items-center align-middle mt-5">
-        <div>
+      <div className="grid grid-cols-2 items-center align-middle">
+        <div className="mt-5">
           <h2
             style={{
               fontFamily: "var(--font-cabinet)",
