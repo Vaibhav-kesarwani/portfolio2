@@ -85,14 +85,17 @@ const stack = [
 
 const socialLink = [
   {
+    name: "Github",
     icon: SiGithub,
     href: "https://github.com/Vaibhav-kesarwani",
   },
   {
+    name: "Linkedin",
     icon: SiLinkedin,
     href: "https://www.linkedin.com/in/vaibhavdev",
   },
   {
+    name: "Twitter(X)",
     icon: SiX,
     href: "https://x.com/vaibhav_k__",
   },
@@ -120,13 +123,14 @@ export default function IntoCard() {
     return () => clearInterval(interval);
   }, []);
 
-  const row1 = stack.filter((_, i) => i % 3 === 0);
-  const row2 = stack.filter((_, i) => i % 3 === 1);
-  const row3 = stack.filter((_, i) => i % 3 === 2);
+  const row1 = stack.filter((_, i) => i % 4 === 0);
+  const row2 = stack.filter((_, i) => i % 4 === 1);
+  const row3 = stack.filter((_, i) => i % 4 === 2);
+  const row4 = stack.filter((_, i) => i % 4 === 3);
 
   return (
     <>
-      <div className="p-5">
+      <div className="p-8">
         <div
           style={{
             fontFamily: "var(--font-cabinet)",
@@ -155,7 +159,7 @@ export default function IntoCard() {
         </div>
       </div>
 
-      <div className="mt-8 space-y-4">
+      <div className="mt-10 space-y-4">
         <InfiniteSlider gap={16} speed={20}>
           {row1.map((s, idx) => {
             const Icon = s.icon;
@@ -200,16 +204,32 @@ export default function IntoCard() {
             );
           })}
         </InfiniteSlider>
+
+        <InfiniteSlider gap={16} speed={20} reverse>
+          {row4.map((s, idx) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={idx}
+                className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 text-white/80 text-xs font-semibold"
+              >
+                <Icon className="h-4 w-4" />
+                <span>{s.name}</span>
+              </div>
+            );
+          })}
+        </InfiniteSlider>
       </div>
 
-      <div className="flex items-center justify-center gap-5 mt-15">
+      <div className="flex items-center justify-center gap-2 mt-15 px-2">
         {socialLink.map((social, idx) => {
           const Icon = social.icon;
 
           return (
             <Link key={idx} href={social.href} target="_blank">
-              <div className="border border-white/40 rounded-full p-2">
-                <Icon className="h-5 w-5" />
+              <div className="border border-white/40 rounded-full py-2 px-3 flex items-center justify-center gap-2">
+                <Icon className="h-4 w-4" />
+                <span className="text-xs">{social.name}</span>
               </div>
             </Link>
           );
