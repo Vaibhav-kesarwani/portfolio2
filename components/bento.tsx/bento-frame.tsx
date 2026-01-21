@@ -4,7 +4,7 @@ import MainCard from "./main-card";
 
 export default function BentoFrame() {
   return (
-    <div className="grid grid-cols-4 grid-rows-2 w-full h-250 px-10 gap-6">
+    <div className="grid grid-cols-4 grid-rows-2 w-full h-250 px-10 gap-6 mt-10">
       <div
         className="row-span-1 rounded-3xl border border-white/10 hover:border-white/20 
                 transition-colors duration-500 ease-out
