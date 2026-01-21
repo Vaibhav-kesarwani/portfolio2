@@ -1,13 +1,25 @@
+import ContactCard from "./contact-card";
 import IntoCard from "./intro-card";
 
 export default function BentoFrame() {
   return (
     <div className="grid grid-cols-4 grid-rows-2 w-full h-screen px-10 gap-6">
-      <div className="border border-white/10 row-span-1 rounded-3xl">
+      <div
+        className="row-span-1 rounded-3xl border border-white/10 hover:border-white/20 
+                transition-colors duration-500 ease-out
+                hover:shadow-[0_0_0_1px_rgba(255,255,255,0.35)]"
+      >
         <IntoCard />
       </div>
+
       <div className="border border-red-500 col-span-2 rounded-3xl"></div>
-      <div className="border border-red-500 row-span-1 rounded-3xl"></div>
+      <div
+        className="row-span-1 rounded-3xl border border-white/10 hover:border-white/70 
+                transition-colors duration-500 ease-out
+                hover:shadow-[0_0_0_1px_rgba(255,255,255,1.45)]"
+      >
+        <ContactCard />
+      </div>
 
       <div className="border border-red-500 col-span-2 rounded-3xl"></div>
       <div className="border border-red-500 col-span-2 rounded-3xl"></div>

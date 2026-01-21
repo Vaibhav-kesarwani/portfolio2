@@ -7,18 +7,14 @@ export default function Logo() {
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
       const current = window.scrollY;
 
-      if (current > lastScrollY && current > 60) {
+      if (current) {
         setHidden(true);
       } else {
         setHidden(false);
       }
-
-      lastScrollY = current;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
