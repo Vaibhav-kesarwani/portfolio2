@@ -30,10 +30,15 @@ export default function ContactCard() {
   };
 
   return (
-    <div className="px-6 py-8 group">
+    <div className="p-8 group">
       <div className="flex items-center justify-between">
         <div className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/10">
-          <div className="absolute inset-2 rounded-full border border-white/20" />
+          <div
+            className="absolute inset-2 rounded-full border border-white/30 transition-all duration-500 ease-out
+  [clip-path:inset(0_0_50%_0)]
+  group-hover:[clip-path:inset(0_0_0_0)] group-hover:border-white"
+          />
+
           <div className="h-2 w-2 rounded-full bg-white" />
         </div>
         <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-white">
@@ -44,13 +49,18 @@ export default function ContactCard() {
           Available for work
         </div>
       </div>
-      <div className="mt-5">
+      <div className="mt-10">
         <h2 className="text-3xl font-extrabold leading-tight text-white">
           LET&apos;S BUILD
           <br />
           SOMETHING
         </h2>
-        <p className="mt-1 font-serif text-2xl italic text-white/50">
+        <p
+          style={{
+            fontFamily: "cursive",
+          }}
+          className="mt-1 font-serif text-2xl italic text-white/50"
+        >
           that actually works.
         </p>
       </div>
@@ -58,7 +68,7 @@ export default function ContactCard() {
       <div
         ref={emailRef}
         onClick={copyEmail}
-        className="group relative z-10 flex cursor-pointer flex-col items-center text-center"
+        className="group relative z-10 flex cursor-pointer flex-col items-center text-center mt-10"
       >
         <div className="flex items-center gap-3">
           <div
@@ -86,11 +96,11 @@ export default function ContactCard() {
           </span>
         </div>
 
-        <p className="mt-3 text-[10px] tracking-[0.3em] text-white/30">
+        <p className="mt-3 text-[10px] tracking-[0.3em] text-white/50 uppercase font-semibold">
           {copied ? "COPIED!" : "TAP TO COPY EMAIL"}
         </p>
       </div>
-      <div className="mt-7">
+      <div className="mt-15">
         <Link
           href={"mailto:vaibhavkesarwani100@gmail.com"}
           style={{
