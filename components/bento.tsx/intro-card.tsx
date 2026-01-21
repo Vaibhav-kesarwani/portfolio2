@@ -1,0 +1,220 @@
+"use client";
+
+import { MapPin } from "lucide-react";
+import { useEffect, useState } from "react";
+import { GrReactjs } from "react-icons/gr";
+import { TbBrandNextjs } from "react-icons/tb";
+import { SiGithub, SiLinkedin, SiTypescript, SiX } from "react-icons/si";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { TbBrandFramerMotion } from "react-icons/tb";
+import { IoLogoNodejs } from "react-icons/io5";
+import { SiExpress } from "react-icons/si";
+import { SiFlask } from "react-icons/si";
+import { SiRedux } from "react-icons/si";
+import { BiLogoDjango } from "react-icons/bi";
+import { SiPrisma } from "react-icons/si";
+import { SiMongodb } from "react-icons/si";
+import { BiLogoPostgresql } from "react-icons/bi";
+import { FaSass } from "react-icons/fa6";
+import { SiDocker } from "react-icons/si";
+import InfiniteSlider from "../vaibhav-ui/infinite-slider";
+import Link from "next/link";
+
+const stack = [
+  {
+    icon: GrReactjs,
+    name: "React",
+  },
+  {
+    icon: TbBrandNextjs,
+    name: "Next.js",
+  },
+  {
+    icon: SiTypescript,
+    name: "TypeScript",
+  },
+  {
+    icon: RiTailwindCssFill,
+    name: "Tailwind",
+  },
+  {
+    icon: TbBrandFramerMotion,
+    name: "Motion",
+  },
+  {
+    icon: IoLogoNodejs,
+    name: "Node.js",
+  },
+  {
+    icon: SiExpress,
+    name: "Express.js",
+  },
+  {
+    icon: SiFlask,
+    name: "Flask",
+  },
+  {
+    icon: SiRedux,
+    name: "Redux",
+  },
+  {
+    icon: BiLogoDjango,
+    name: "Django",
+  },
+  {
+    icon: SiPrisma,
+    name: "Prisma",
+  },
+  {
+    icon: SiMongodb,
+    name: "Mongo DB",
+  },
+  {
+    icon: BiLogoPostgresql,
+    name: "Postgresql",
+  },
+  {
+    icon: FaSass,
+    name: "Sass",
+  },
+  {
+    icon: SiDocker,
+    name: "Docker",
+  },
+];
+
+const socialLink = [
+  {
+    icon: SiGithub,
+    href: "https://github.com/Vaibhav-kesarwani",
+  },
+  {
+    icon: SiLinkedin,
+    href: "https://www.linkedin.com/in/vaibhavdev",
+  },
+  {
+    icon: SiX,
+    href: "https://x.com/vaibhav_k__",
+  },
+];
+
+export default function IntoCard() {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const formatter = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      });
+
+      setTime(formatter.format(new Date()));
+    };
+
+    updateTime();
+
+    const interval = setInterval(updateTime, 60 * 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const row1 = stack.filter((_, i) => i % 3 === 0);
+  const row2 = stack.filter((_, i) => i % 3 === 1);
+  const row3 = stack.filter((_, i) => i % 3 === 2);
+
+  return (
+    <>
+      <div className="p-5">
+        <div
+          style={{
+            fontFamily: "var(--font-cabinet)",
+            fontWeight: 900,
+          }}
+          className="text-3xl tracking-wide"
+        >
+          Vaibhav{" "}
+          <span
+            style={{
+              fontFamily: "cursive",
+            }}
+            className="text-white/30 tracking-normal"
+          >
+            Kesarwani
+          </span>
+        </div>
+
+        <div className="flex items-center justify-start text-white/40 mt-2 gap-2 font-semibold text-xs">
+          <MapPin className="h-3 w-3 stroke-3" />
+          <div className="flex gap-2 items-center justify-center">
+            <span className="uppercase">Prayagraj, IN</span>
+            <div className="h-1 w-1 rounded-full bg-white/40" />
+            <span>{time}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-8 space-y-4">
+        <InfiniteSlider gap={16} speed={20}>
+          {row1.map((s, idx) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={idx}
+                className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 text-white/80 text-xs font-semibold"
+              >
+                <Icon className="h-4 w-4" />
+                <span>{s.name}</span>
+              </div>
+            );
+          })}
+        </InfiniteSlider>
+
+        <InfiniteSlider gap={16} speed={20} reverse>
+          {row2.map((s, idx) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={idx}
+                className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 text-white/80 text-xs font-semibold"
+              >
+                <Icon className="h-4 w-4" />
+                <span>{s.name}</span>
+              </div>
+            );
+          })}
+        </InfiniteSlider>
+
+        <InfiniteSlider gap={16} speed={20}>
+          {row3.map((s, idx) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={idx}
+                className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 text-white/80 text-xs font-semibold"
+              >
+                <Icon className="h-4 w-4" />
+                <span>{s.name}</span>
+              </div>
+            );
+          })}
+        </InfiniteSlider>
+      </div>
+
+      <div className="flex items-center justify-center gap-5 mt-15">
+        {socialLink.map((social, idx) => {
+          const Icon = social.icon;
+
+          return (
+            <Link key={idx} href={social.href} target="_blank">
+              <div className="border border-white/40 rounded-full p-2">
+                <Icon className="h-5 w-5" />
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </>
+  );
+}
