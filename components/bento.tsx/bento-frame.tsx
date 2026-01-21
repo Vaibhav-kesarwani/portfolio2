@@ -13,7 +13,11 @@ export default function BentoFrame() {
         <IntoCard />
       </div>
 
-      <div className="border border-red-500 col-span-2 rounded-3xl">
+      <div
+        className="col-span-2 rounded-3xl border border-white/10 hover:border-white/20 
+                transition-colors duration-500 ease-out
+                hover:shadow-[0_0_0_1px_rgba(255,255,255,0.35)]"
+      >
         <MainCard />
       </div>
       <div
