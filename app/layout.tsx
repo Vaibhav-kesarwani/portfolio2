@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import ClickSpark from "@/components/vaibhav-ui/click-spark";
@@ -44,6 +45,7 @@ export default function RootLayout({
           >
             <Navbar />
             {children}
+            <Footer />
           </ClickSpark>
         </ThemeProvider>
       </body>
