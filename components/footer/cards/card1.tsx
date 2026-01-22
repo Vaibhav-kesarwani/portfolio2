@@ -59,7 +59,7 @@ export default function Card1() {
         </div>
       </div>
 
-      <div className="mt-15 flex items-center justify-center h-full">
+      <div className="mt-20 flex items-center justify-center h-full">
         <div className="w-70 border-t border-white/20" />
       </div>
 
