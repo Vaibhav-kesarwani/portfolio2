@@ -1,9 +1,10 @@
 import { AuroraText } from "../vaibhav-ui/aurora-text";
 import Card1 from "./cards/card1";
 import Card2 from "./cards/card2";
+import Card3 from "./cards/card3";
 
 export default function CTASection() {
-  const cards = [Card1, Card2];
+  const cards = [Card1, Card2, Card3];
 
   return (
     <div className="mt-50">
