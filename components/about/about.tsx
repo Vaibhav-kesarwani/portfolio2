@@ -4,7 +4,7 @@ import ScrollRevealParagraph from "../vaibhav-ui/scroll-reveal-paragraph";
 
 export default function About() {
   return (
-    <div className="mt-30 w-full flex flex-col items-center justify-center">
+    <div className="w-full flex flex-col items-center justify-center">
       <div className="max-w-5xl w-full flex flex-col items-center text-center">
         <span className="uppercase font-semibold text-base text-white/50 tracking-wider">
           A QUICK GLANCE
@@ -39,7 +39,6 @@ export default function About() {
         curveAmount={400}
         direction="left"
         interactive={false}
-        className="custom-text-style"
       />
     </div>
   );
