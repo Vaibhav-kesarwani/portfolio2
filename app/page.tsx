@@ -1,4 +1,5 @@
-import BentoFrame from "@/components/bento.tsx/bento-frame";
+import About from "@/components/about/about";
+import BentoFrame from "@/components/bento/bento-frame";
 import HeroText from "@/components/hero/hero-text";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <HeroText />
       <BentoFrame />
+      <About />
     </>
   );
 }
