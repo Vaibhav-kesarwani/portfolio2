@@ -1,4 +1,5 @@
 import { AuroraText } from "../vaibhav-ui/aurora-text";
+import CurvedLoop from "../vaibhav-ui/curved-loop";
 import ScrollRevealParagraph from "../vaibhav-ui/scroll-reveal-paragraph";
 
 export default function About() {
@@ -31,6 +32,15 @@ export default function About() {
           />
         </div>
       </div>
+
+      <CurvedLoop
+        marqueeText="Be ✦ Creative ✦ With ✦ Turning ✦ Ideas ✦ Into ✦ Impact"
+        speed={2}
+        curveAmount={400}
+        direction="left"
+        interactive={false}
+        className="custom-text-style"
+      />
     </div>
   );
 }
