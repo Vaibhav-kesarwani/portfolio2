@@ -1,24 +1,27 @@
 "use client";
 
 import { MapPin } from "lucide-react";
-import { useEffect, useState } from "react";
-import { GrReactjs } from "react-icons/gr";
-import { TbBrandNextjs } from "react-icons/tb";
-import { SiGithub, SiLinkedin, SiTypescript, SiX } from "react-icons/si";
-import { RiTailwindCssFill } from "react-icons/ri";
-import { TbBrandFramerMotion } from "react-icons/tb";
-import { IoLogoNodejs } from "react-icons/io5";
-import { SiExpress } from "react-icons/si";
-import { SiFlask } from "react-icons/si";
-import { SiRedux } from "react-icons/si";
-import { BiLogoDjango } from "react-icons/bi";
-import { SiPrisma } from "react-icons/si";
-import { SiMongodb } from "react-icons/si";
-import { BiLogoPostgresql } from "react-icons/bi";
-import { FaSass } from "react-icons/fa6";
-import { SiDocker } from "react-icons/si";
-import InfiniteSlider from "../vaibhav-ui/infinite-slider";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { BiLogoDjango, BiLogoPostgresql } from "react-icons/bi";
+import { FaSass } from "react-icons/fa6";
+import { GrReactjs } from "react-icons/gr";
+import { IoLogoNodejs } from "react-icons/io5";
+import { RiTailwindCssFill } from "react-icons/ri";
+import {
+  SiDocker,
+  SiExpress,
+  SiFlask,
+  SiGithub,
+  SiLinkedin,
+  SiMongodb,
+  SiPrisma,
+  SiRedux,
+  SiTypescript,
+  SiX,
+} from "react-icons/si";
+import { TbBrandFramerMotion, TbBrandNextjs } from "react-icons/tb";
+import InfiniteSlider from "../vaibhav-ui/infinite-slider";
 
 const stack = [
   {
