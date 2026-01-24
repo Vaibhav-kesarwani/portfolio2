@@ -2,6 +2,7 @@ import About from "@/components/about/about";
 import { AuroraText } from "@/components/vaibhav-ui/aurora-text";
 import SectionMainText from "@/components/vaibhav-ui/section-main-text";
 import ExperienceTimeline from "@/components/vaibhav-ui/experience-timeline";
+import GithubStats from "@/components/vaibhav-ui/github-stats";
 
 export default function AboutPage() {
   return (
@@ -18,7 +19,7 @@ export default function AboutPage() {
         <About />
       </div>
 
-      <div className="mt-40 w-full flex justify-center px-6">
+      <div className="mt-50 w-full flex justify-center px-6">
         <div className="max-w-5xl w-full flex flex-col items-center text-center">
           <span className="uppercase font-semibold text-base text-white/50 tracking-wider">
             The experience
@@ -35,6 +36,7 @@ export default function AboutPage() {
       </div>
 
       <ExperienceTimeline />
+      <GithubStats />
     </section>
   );
 }
