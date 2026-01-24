@@ -1,5 +1,7 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
 import { AuroraText } from "../vaibhav-ui/aurora-text";
 import Modal from "./modal";
 import ProjectCard from "./project-card";
@@ -70,6 +72,19 @@ export default function Home() {
           setIsHoveringModal={setIsHoveringModal}
         />
       </div>
+
+      <Link
+        href={"https://github.com/Vaibhav-kesarwani"}
+        target="_blank"
+        className="flex items-center justify-center gap-3 group mt-5 cursor-pointer"
+      >
+        <span className="text-base group-hover:text-white text-white/60 font-semibold transition-all duration-300 ease-out">
+          See more projects
+        </span>
+        <div className="border border-white/10 p-2 rounded-full group-hover:-rotate-45 transition-all duration-300 ease-out">
+          <FaArrowRight className="w-3 h-3" />
+        </div>
+      </Link>
     </div>
   );
 }
