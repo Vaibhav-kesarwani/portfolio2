@@ -147,4 +147,14 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  ::selection {
+    background: #e4d38f; 
+    color: #0a0a0a; 
+  }
+
+  ::-moz-selection {
+    background: #e4d38f;
+    color: #0a0a0a;
+  }
 }
