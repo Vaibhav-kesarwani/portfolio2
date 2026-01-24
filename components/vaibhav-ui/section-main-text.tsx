@@ -50,7 +50,7 @@ export default function SectionMainText({
           fontSize: "200px",
           fontWeight: 900,
         }}
-        className="tracking-normal"
+        className="tracking-normal uppercase"
       >
         {mainText}
       </motion.div>
