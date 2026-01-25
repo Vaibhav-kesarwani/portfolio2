@@ -2,6 +2,7 @@ import Footer from "@/components/footer/footer";
 import Navbar from "@/components/navbar/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import ClickSpark from "@/components/vaibhav-ui/click-spark";
+import DeviceGate from "@/components/vaibhav-ui/device-gate";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -46,9 +47,11 @@ export default function RootLayout({
             sparkCount={8}
             duration={400}
           >
-            <Navbar />
-            {children}
-            <Footer />
+            <DeviceGate>
+              <Navbar />
+              {children}
+              <Footer />
+            </DeviceGate>
           </ClickSpark>
         </ThemeProvider>
       </body>
