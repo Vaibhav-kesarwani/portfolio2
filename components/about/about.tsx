@@ -4,7 +4,7 @@ import ScrollRevealParagraph from "../vaibhav-ui/scroll-reveal-paragraph";
 
 export default function About() {
   return (
-    <div className="w-full flex flex-col items-center justify-center">
+    <div className="w-full flex flex-col items-center justify-center min-h-screen">
       <div className="max-w-5xl w-full flex flex-col items-center text-center">
         <span className="uppercase font-semibold text-base text-white/50 tracking-wider">
           A QUICK GLANCE
@@ -33,13 +33,15 @@ export default function About() {
         </div>
       </div>
 
-      <CurvedLoop
-        marqueeText="Be ✦ Creative ✦ With ✦ Turning ✦ Ideas ✦ Into ✦ Impact"
-        speed={2}
-        curveAmount={400}
-        direction="left"
-        interactive={false}
-      />
+      <div className="relative w-full h-95 flex items-center justify-center overflow-hidden">
+        <CurvedLoop
+          marqueeText="Be ✦ Creative ✦ With ✦ Turning ✦ Ideas ✦ Into ✦ Impact"
+          speed={2}
+          curveAmount={400}
+          direction="left"
+          interactive={false}
+        />
+      </div>
     </div>
   );
 }
