@@ -1,82 +1,71 @@
 "use client";
-import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import Logo from "./logo";
 
-const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Work", href: "/work" },
-  { label: "Blogs", href: "/blogs" },
-  { label: "Contact", href: "/contact" },
-];
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import Menu from "./menu";
+import NavButton from "./nav-button";
 
-export default function Navbar() {
-  const pathname = usePathname();
+const menu = {
+  open: {
+    width: "480px",
+    height: "650px",
+    top: "-25px",
+    right: "-25px",
+    transition: {
+      duration: 0.75,
+      type: "tween",
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  closed: {
+    width: "100px",
+    height: "40px",
+    top: "0px",
+    right: "0px",
+    transition: {
+      duration: 0.75,
+      delay: 0.35,
+      type: "tween",
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+};
+
+export default function Header() {
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <>
-      <Logo />
+      <AnimatePresence>
+        {isActive && (
+          <motion.div
+            className="fixed inset-0 z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsActive(false)}
+          />
+        )}
+      </AnimatePresence>
 
-      <motion.nav
-        initial={{ y: -30, opacity: 0, scale: 0.95 }}
-        animate={{ y: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-6 left-1/2 z-50 -translate-x-1/2"
-      >
-        <div className="relative flex items-center gap-2 rounded-full border border-white/10 bg-black/50 px-3 py-2 backdrop-blur-xl shadow-[0_0_40px_rgba(255,255,255,0.06)]">
-          {NAV_ITEMS.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
+      <div className="fixed top-12.5 right-12.5 z-50">
+        <motion.div
+          className="relative bg-[#c9fd74] rounded-[25px] overflow-hidden"
+          variants={menu}
+          animate={isActive ? "open" : "closed"}
+          initial="closed"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <AnimatePresence>
+            {isActive && <Menu closeMenu={() => setIsActive(false)} />}
+          </AnimatePresence>
+        </motion.div>
 
-            return (
-              <Link key={item.href} href={item.href} className="relative">
-                <motion.span
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.96 }}
-                  className={`relative z-10 block rounded-full px-4 py-2 text-sm font-medium transition-colors
-                    ${
-                      isActive
-                        ? "text-black shadow-inner shadow-white/70"
-                        : "text-white/70 hover:text-white shadow-inner shadow-black"
-                    }`}
-                >
-                  {isActive && (
-                    <motion.div
-                      layoutId="navbar-pill"
-                      transition={{
-                        type: "spring",
-                        stiffness: 380,
-                        damping: 30,
-                      }}
-                      className="absolute inset-0 -z-10 rounded-full bg-white shadow-[0_8px_30px_rgba(255,255,255,0.35)]"
-                    />
-                  )}
-                  {item.label}
-                </motion.span>
-              </Link>
-            );
-          })}
-
-          <div className="mx-1 h-6 w-px bg-linear-to-b from-white/5 via-white/20 to-white/5" />
-
-          <Link href="/labs">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center gap-1 relative overflow-hidden rounded-full bg-linear-to-tr from-white via-neutral-200 to-white px-3 py-2 text-sm font-semibold text-black shadow-[0_10px_30px_rgba(255,255,255,0.25)] group"
-            >
-              <span className="relative z-10">Labs UI</span>
-              <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-all duration-300 ease-out" />
-              <div className="absolute inset-0 bg-linear-to-r from-white/40 via-transparent to-white/40 opacity-60" />
-            </motion.div>
-          </Link>
-        </div>
-      </motion.nav>
+        <NavButton
+          isActive={isActive}
+          toggleMenu={() => setIsActive(!isActive)}
+        />
+      </div>
     </>
   );
 }
