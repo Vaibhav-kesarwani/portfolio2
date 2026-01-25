@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 type Project = {
+  title: string;
   src: string;
   color: string;
   href?: string;
@@ -94,7 +95,6 @@ export default function Modal({ modal, projects, setIsHoveringModal }: Props) {
 
   return (
     <>
-      {/* Floating preview */}
       <motion.div
         ref={modalContainer}
         variants={scaleAnimation}
@@ -109,23 +109,23 @@ export default function Modal({ modal, projects, setIsHoveringModal }: Props) {
           {projects.map((project, i) => (
             <div
               key={`modal_${i}`}
-              className="h-full w-full flex items-center justify-center"
+              className="h-full w-full flex flex-col items-center justify-center gap-5"
               style={{ backgroundColor: project.color }}
             >
               <Image
                 src={`/projects/${project.src}`}
-                width={300}
-                height={300}
+                width={320}
+                height={320}
                 alt="project"
                 priority
-                className="h-auto w-auto"
+                className="h-auto w-auto border border-white"
               />
+              <span className="text-xl font-semibold">{project.title}</span>
             </div>
           ))}
         </div>
       </motion.div>
 
-      {/* Blue cursor bubble */}
       <motion.div
         ref={cursor}
         variants={scaleAnimation}
@@ -133,10 +133,9 @@ export default function Modal({ modal, projects, setIsHoveringModal }: Props) {
         animate={active ? "enter" : "closed"}
         onMouseEnter={() => setIsHoveringModal(true)}
         onMouseLeave={() => setIsHoveringModal(false)}
-        className="absolute z-20 h-20 w-20 rounded-full bg-[#455CE9] pointer-events-auto"
+        className="absolute z-20 h-20 w-20 rounded-full bg-[#c9fd74] pointer-events-auto"
       />
 
-      {/* Clickable View button */}
       <motion.div
         ref={cursorLabel}
         variants={scaleAnimation}
@@ -149,7 +148,7 @@ export default function Modal({ modal, projects, setIsHoveringModal }: Props) {
           if (project?.href) window.open(project.href, "_blank");
         }}
         className="absolute z-30 h-20 w-20 rounded-full flex items-center justify-center 
-                   text-white text-sm font-light cursor-pointer pointer-events-auto"
+                   text-black font-semibold text-sm cursor-pointer pointer-events-auto"
       >
         View
       </motion.div>
