@@ -5,6 +5,7 @@ import { useState } from "react";
 import Menu from "./menu";
 import NavButton from "./nav-button";
 import { Variants } from "framer-motion";
+import Logo from "./logo";
 
 const menu: Variants = {
   open: {
@@ -50,6 +51,8 @@ export default function Navbar() {
       </AnimatePresence>
 
       <div className="fixed top-12.5 right-12.5 z-50">
+        <Logo />
+
         <motion.div
           className="relative bg-[#c9fd74] rounded-[25px] overflow-hidden"
           variants={menu}
