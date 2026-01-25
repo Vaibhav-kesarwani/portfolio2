@@ -20,12 +20,7 @@ export default function ProjectCard({ index, title, setModal }: Props) {
       className="group w-full flex items-center justify-between pl-10 pr-20 py-12.5 border-t border-white/30 cursor-pointer transition-all duration-200 hover:opacity-50 last:border-b last:border-white/30"
     >
       <div className="flex items-center justify-center gap-5">
-        <span
-          style={{
-            fontFamily: "cursive",
-          }}
-          className="text-8xl text-white/40 font-bold p-0"
-        >
+        <span className="text-white/40 text-sm font-semibold">
           {"0"}
           {index + 1}
         </span>

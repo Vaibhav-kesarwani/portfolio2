@@ -1,5 +1,6 @@
 "use client";
 
+import { useSmoothNavigation } from "@/lib/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { perspective, slideIn } from "./anim";
@@ -29,20 +30,20 @@ export const links = [
 
 export const footerLinks = [
   {
-    title: "Facebook",
-    href: "/",
+    title: "Github",
+    href: "https://github.com/Vaibhav-kesarwani",
   },
   {
     title: "LinkedIn",
-    href: "/",
+    href: "https://www.linkedin.com/in/vaibhavdev",
   },
   {
     title: "Instagram",
-    href: "/",
+    href: "https://www.instagram.com/vaibhavkesarwani__",
   },
   {
-    title: "Twitter",
-    href: "/",
+    title: "Twitter(X)",
+    href: "https://x.com/vaibhav_k__",
   },
 ];
 type MenuProps = {
@@ -50,6 +51,8 @@ type MenuProps = {
 };
 
 export default function Menu({ closeMenu }: MenuProps) {
+  const { navigate } = useSmoothNavigation(closeMenu);
+
   return (
     <div className="flex flex-col justify-between h-full px-10 pt-25 pb-12.5">
       <div className="flex flex-col gap-2.5">
@@ -67,7 +70,13 @@ export default function Menu({ closeMenu }: MenuProps) {
               onClick={closeMenu}
               className="text-black text-[46px] no-underline block"
             >
-              <Link href={link.href}>{link.title}</Link>
+              <button
+                onClick={() => navigate(link.href)}
+                key={link.href}
+                className="cursor-pointer"
+              >
+                {link.title}
+              </button>
             </motion.div>
           </div>
         ))}
@@ -77,7 +86,6 @@ export default function Menu({ closeMenu }: MenuProps) {
         {footerLinks.map((link, i) => (
           <motion.div
             key={i}
-            href={link.href}
             onClick={closeMenu}
             variants={slideIn}
             custom={i}
