@@ -36,7 +36,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Backdrop */}
       <AnimatePresence>
         {isActive && (
           <motion.div
@@ -49,7 +48,6 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* Menu */}
       <div className="fixed top-12.5 right-12.5 z-50">
         <motion.div
           className="relative bg-[#c9fd74] rounded-[25px] overflow-hidden"
