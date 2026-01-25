@@ -4,8 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import Menu from "./menu";
 import NavButton from "./nav-button";
+import { Variants } from "framer-motion";
 
-const menu = {
+const menu: Variants = {
   open: {
     width: "480px",
     height: "650px",
@@ -31,7 +32,7 @@ const menu = {
   },
 };
 
-export default function Header() {
+export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
 
   return (
