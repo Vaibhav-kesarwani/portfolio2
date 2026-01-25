@@ -9,81 +9,51 @@ import { GrReactjs } from "react-icons/gr";
 import { IoLogoNodejs } from "react-icons/io5";
 import { RiTailwindCssFill } from "react-icons/ri";
 import {
+  SiClerk,
   SiDocker,
+  SiExpo,
   SiExpress,
   SiFlask,
+  SiGit,
   SiGithub,
   SiLinkedin,
+  SiLinux,
   SiMongodb,
+  SiPnpm,
   SiPrisma,
   SiRedux,
   SiTypescript,
+  SiVercel,
   SiX,
+  SiZod,
 } from "react-icons/si";
 import { TbBrandFramerMotion, TbBrandNextjs } from "react-icons/tb";
 import InfiniteSlider from "../vaibhav-ui/infinite-slider";
 
 const stack = [
-  {
-    icon: GrReactjs,
-    name: "React",
-  },
-  {
-    icon: TbBrandNextjs,
-    name: "Next.js",
-  },
-  {
-    icon: SiTypescript,
-    name: "TypeScript",
-  },
-  {
-    icon: RiTailwindCssFill,
-    name: "Tailwind",
-  },
-  {
-    icon: TbBrandFramerMotion,
-    name: "Motion",
-  },
-  {
-    icon: IoLogoNodejs,
-    name: "Node.js",
-  },
-  {
-    icon: SiExpress,
-    name: "Express.js",
-  },
-  {
-    icon: SiFlask,
-    name: "Flask",
-  },
-  {
-    icon: SiRedux,
-    name: "Redux",
-  },
-  {
-    icon: BiLogoDjango,
-    name: "Django",
-  },
-  {
-    icon: SiPrisma,
-    name: "Prisma",
-  },
-  {
-    icon: SiMongodb,
-    name: "Mongo DB",
-  },
-  {
-    icon: BiLogoPostgresql,
-    name: "Postgresql",
-  },
-  {
-    icon: FaSass,
-    name: "Sass",
-  },
-  {
-    icon: SiDocker,
-    name: "Docker",
-  },
+  { icon: GrReactjs, name: "React", color: "#61DAFB" },
+  { icon: TbBrandNextjs, name: "Next.js", color: "#ffffff" },
+  { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+  { icon: RiTailwindCssFill, name: "Tailwind", color: "#38BDF8" },
+  { icon: TbBrandFramerMotion, name: "Motion", color: "#E879F9" },
+  { icon: IoLogoNodejs, name: "Node.js", color: "#22C55E" },
+  { icon: SiExpress, name: "Express.js", color: "#ffffff" },
+  { icon: SiZod, name: "Zod", color: "#8B5CF6" },
+  { icon: SiPnpm, name: "Pnpm", color: "#FBBF24" },
+  { icon: SiGit, name: "Git", color: "#F97316" },
+  { icon: SiGithub, name: "Github", color: "#ffffff" },
+  { icon: SiVercel, name: "Vercel", color: "#ffffff" },
+  { icon: SiExpo, name: "Expo", color: "#ffffff" },
+  { icon: SiClerk, name: "Clerk", color: "#A855F7" },
+  { icon: SiLinux, name: "Linux", color: "#FACC15" },
+  { icon: SiFlask, name: "Flask", color: "#ffffff" },
+  { icon: SiRedux, name: "Redux", color: "#764ABC" },
+  { icon: BiLogoDjango, name: "Django", color: "#22C55E" },
+  { icon: SiPrisma, name: "Prisma", color: "#ffffff" },
+  { icon: SiMongodb, name: "MongoDB", color: "#22C55E" },
+  { icon: BiLogoPostgresql, name: "PostgreSQL", color: "#38BDF8" },
+  { icon: FaSass, name: "Sass", color: "#EC4899" },
+  { icon: SiDocker, name: "Docker", color: "#38BDF8" },
 ];
 
 const socialLink = [
@@ -171,7 +141,7 @@ export default function IntoCard() {
                 key={idx}
                 className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 text-white/80 text-xs font-semibold"
               >
-                <Icon className="h-4 w-4" />
+                <Icon style={{ color: s.color }} className="h-4 w-4" />
                 <span>{s.name}</span>
               </div>
             );
@@ -186,7 +156,7 @@ export default function IntoCard() {
                 key={idx}
                 className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 text-white/80 text-xs font-semibold"
               >
-                <Icon className="h-4 w-4" />
+                <Icon style={{ color: s.color }} className="h-4 w-4" />
                 <span>{s.name}</span>
               </div>
             );
@@ -201,7 +171,7 @@ export default function IntoCard() {
                 key={idx}
                 className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 text-white/80 text-xs font-semibold"
               >
-                <Icon className="h-4 w-4" />
+                <Icon style={{ color: s.color }} className="h-4 w-4" />
                 <span>{s.name}</span>
               </div>
             );
@@ -216,7 +186,7 @@ export default function IntoCard() {
                 key={idx}
                 className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 text-white/80 text-xs font-semibold"
               >
-                <Icon className="h-4 w-4" />
+                <Icon style={{ color: s.color }} className="h-4 w-4" />
                 <span>{s.name}</span>
               </div>
             );
