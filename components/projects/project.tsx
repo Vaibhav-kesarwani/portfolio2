@@ -9,7 +9,7 @@ import ProjectCard from "./project-card";
 const projects = [
   {
     title: "GitSolve",
-    src: "sendly.png",
+    src: "gitsolve.png",
     href: "https://github.com/Vaibhav-kesarwani/GitSolve",
     color: "#000000",
   },
@@ -17,19 +17,19 @@ const projects = [
     title: "Sendly",
     src: "sendly.png",
     href: "https://sendlyfile.vercel.app/",
-    color: "#8C8C8C",
+    color: "#092635",
   },
   {
     title: "Codeforces Quest",
-    src: "sendly.png",
+    src: "codeforces-quest.png",
     href: "https://github.com/Vaibhav-kesarwani/Codeforces-Quest",
-    color: "#EFE8D3",
+    color: "#1B4242",
   },
   {
     title: "TapAway",
-    src: "sendly.png",
+    src: "tapaway.png",
     href: "https://github.com/Vaibhav-kesarwani/TapAway-App",
-    color: "#706D63",
+    color: "#5C8374",
   },
 ];
 
