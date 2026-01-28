@@ -1,6 +1,9 @@
-import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "@/components/common/navbar";
+import { ThemeProvider } from "@/components/common/theme-provider";
 import "@/styles/globals.css";
+import ReactLenis from "lenis/react";
 import type { Metadata } from "next";
+import { ViewTransitions } from "next-view-transitions";
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -24,19 +27,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+    <ViewTransitions>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ReactLenis root>
+              <Navbar />
+              {children}
+            </ReactLenis>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
