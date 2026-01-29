@@ -1,3 +1,4 @@
+import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/navbar";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import "@/styles/globals.css";
@@ -41,6 +42,7 @@ export default function RootLayout({
             <ReactLenis root>
               <Navbar />
               {children}
+              <Footer />
             </ReactLenis>
           </ThemeProvider>
         </body>
