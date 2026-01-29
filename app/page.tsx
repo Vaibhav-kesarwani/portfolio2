@@ -3,7 +3,7 @@ import Hero from "@/components/landing/hero";
 
 export default function Home() {
   return (
-    <Container>
+    <Container className="min-h-screen py-16">
       <Hero />
     </Container>
   );
