@@ -24,7 +24,7 @@ export const skillComponents = {
 };
 
 export const heroConfig = {
-  name: "Vaibhav Kesarwani",
+  name: "Vaibhav",
   title: "A Full Stack web developer",
   avatar: "/images/me.png",
 
