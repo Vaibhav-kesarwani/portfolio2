@@ -1,6 +1,7 @@
 import Container from "@/components/common/container";
 import Experience from "@/components/common/experience";
 import About from "@/components/landing/about";
+import Blog from "@/components/landing/blog";
 import Github from "@/components/landing/github";
 import Hero from "@/components/landing/hero";
 import Projects from "@/components/landing/project";
@@ -13,6 +14,7 @@ export default function Home() {
       <Projects />
       <About />
       <Github />
+      <Blog />
     </Container>
   );
 }
