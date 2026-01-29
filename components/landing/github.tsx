@@ -1,14 +1,14 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Button } from "../ui/button";
 import { githubConfig } from "@/config/github";
+import { useTheme } from "next-themes";
+import { Link } from "next-view-transitions";
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import Container from "../common/container";
-import GithubIcon from "../svg/Github";
 import SectionHeading from "../common/section-heading";
+import GithubIcon from "../svg/Github";
+import { Button } from "../ui/button";
 
 const ActivityCalendar = dynamic(
   () => import("react-activity-calendar").then((mod) => mod.ActivityCalendar),

@@ -30,7 +30,7 @@ function generateFavicon(bg: string) {
     const s = size - padding * 2;
     ctx.drawImage(img, padding, padding, s, s);
 
-    let link =
+    const link =
       document.querySelector("link[rel~='icon']") ||
       document.createElement("link");
 

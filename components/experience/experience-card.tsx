@@ -1,7 +1,7 @@
 import { Experience } from "@/config/experience";
 import { cn } from "@/lib/utils";
+import { Link } from "next-view-transitions";
 import Image from "next/image";
-import Link from "next/link";
 import Skill from "../common/skill";
 import Github from "../svg/Github";
 import LinkedIn from "../svg/LinkedIn";
