@@ -1,14 +1,14 @@
-import { heroConfig, skillComponents, socialLinks } from "@/config/hero";
-import { parseTemplate } from "@/lib/hero";
-import { cn } from "@/lib/utils";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { heroConfig, skillComponents, socialLinks } from "@/config/hero";
+import { parseTemplate } from "@/lib/hero";
+import { cn } from "@/lib/utils";
+import { Link } from "next-view-transitions";
 import Image from "next/image";
-import Link from "next/link";
 import Container from "../common/container";
 import Skill from "../common/skill";
 import CV from "../svg/CV";

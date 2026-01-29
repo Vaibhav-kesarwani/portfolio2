@@ -1,9 +1,10 @@
 import { type Experience, experiences } from "@/config/experience";
-import Link from "next/link";
+
 import ExperienceCard from "../experience/experience-card";
 import { Button } from "../ui/button";
 import Container from "./container";
 import SectionHeading from "./section-heading";
+import { Link } from "next-view-transitions";
 
 export default function Experience() {
   return (

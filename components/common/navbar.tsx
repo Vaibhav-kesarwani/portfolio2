@@ -1,8 +1,8 @@
 import { navbarConfig } from "@/config/navbar";
 import Image from "next/image";
-import Link from "next/link";
 import Container from "./container";
 import { ThemeToggleButton } from "./theme-switch";
+import { Link } from "next-view-transitions";
 
 export default function Navbar() {
   return (
