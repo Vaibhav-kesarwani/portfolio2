@@ -1,16 +1,16 @@
 "use client";
 
 import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
 } from "@/components/ui/card";
 import {
-    Dialog,
-    DialogContent,
-    DialogTitle,
-    DialogTrigger,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { type Project } from "@/types/project";
 import { Link } from "next-view-transitions";
@@ -158,9 +158,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
           <Link
             href={project.projectDetailsPageSlug}
-            className="text-secondary hover:text-primary flex items-center gap-2 text-sm underline-offset-4 transition-colors hover:underline"
+            className="group relative inline-flex items-center gap-2 text-sm
+             text-secondary transition-colors duration-300 hover:text-primary"
           >
-            View Details <ArrowRight className="size-4" />
+            <span
+              className="relative
+      after:absolute after:left-0 after:-bottom-1
+      after:h-0.5 after:w-full
+      after:origin-left after:scale-x-0
+      after:bg-current
+      after:transition-transform after:duration-300 after:ease-out
+      group-hover:after:scale-x-100"
+            >
+              View Details
+            </span>
+
+            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </CardFooter>
       )}

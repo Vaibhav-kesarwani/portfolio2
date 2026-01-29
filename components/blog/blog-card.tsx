@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
 } from "@/components/ui/card";
 import { BlogPostPreview } from "@/types/blog";
 import { Link } from "next-view-transitions";
@@ -67,9 +67,22 @@ export function BlogCard({ post }: BlogCardProps) {
             </time>
             <Link
               href={`/blog/${slug}`}
-              className="text-secondary flex items-center justify-end gap-2 underline-offset-4 hover:underline"
+              className="group relative inline-flex items-center justify-end gap-2
+             text-secondary transition-colors duration-300 hover:text-primary"
             >
-              Read More <ArrowRight className="size-4" />
+              <span
+                className="relative
+      after:absolute after:left-0 after:-bottom-1
+      after:h-0.5 after:w-full
+      after:origin-left after:scale-x-0
+      after:bg-current
+      after:transition-transform after:duration-300 after:ease-out
+      group-hover:after:scale-x-100"
+              >
+                Read More
+              </span>
+
+              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
         </div>

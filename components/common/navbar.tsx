@@ -24,7 +24,13 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="hover:underline hover:decoration-2 hover:underline-offset-4 transition-all duration-300 ease-in-out"
+                  className="relative inline-block
+             after:absolute after:left-0 after:-bottom-1
+             after:h-0.5 after:w-full
+             after:origin-left after:scale-x-0
+             after:bg-current
+             after:transition-transform after:duration-300 after:ease-out
+             hover:after:scale-x-100"
                 >
                   {item.label}
                 </Link>
