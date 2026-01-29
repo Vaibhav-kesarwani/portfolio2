@@ -7,13 +7,13 @@ import {
 import { heroConfig, skillComponents, socialLinks } from "@/config/hero";
 import { parseTemplate } from "@/lib/hero";
 import { cn } from "@/lib/utils";
-import { Link } from "next-view-transitions";
 import Image from "next/image";
 import Container from "../common/container";
 import Skill from "../common/skill";
 import CV from "../svg/CV";
 import Chat from "../svg/Chat";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const buttonIcons = {
   CV: CV,
@@ -76,17 +76,19 @@ export default function Hero() {
         {buttons.map((button, idx) => {
           const Icon = buttonIcons[button.icon as keyof typeof buttonIcons];
           return (
-            <Button
-              key={idx}
-              variant={button.varaiant as "outline" | "default"}
-              className={cn(
-                button.varaiant === "outline" && "inset-shadow-indigo-500",
-                button.varaiant === "default" && "inset-shadow-indigo-500",
-              )}
-            >
-              {Icon && <Icon />}
-              <Link href={button.href}>{button.text}</Link>
-            </Button>
+            <Link key={idx} href={button.href}>
+              <Button
+                variant={button.varaiant as "outline" | "default"}
+                className={cn(
+                  button.varaiant === "outline" && "inset-shadow-indigo-500",
+                  button.varaiant === "default" && "inset-shadow-indigo-500",
+                  "cursor-pointer",
+                )}
+              >
+                {Icon && <Icon />}
+                {button.text}
+              </Button>
+            </Link>
           );
         })}
       </div>
