@@ -122,17 +122,27 @@ export default function Github() {
     <Container className="mt-20">
       <div className="space-y-6">
         {/* Header */}
-        <div>
-          <SectionHeading subHeading="Featured" heading="Gtihub Activity" />
-          {!isLoading && !hasError && totalContributions > 0 && (
-            <p className="text-primary mt-1 text-sm font-medium">
-              Total:{" "}
-              <span className="font-black">
-                {totalContributions.toLocaleString()}
-              </span>{" "}
-              contributions
-            </p>
-          )}
+        <div className="flex items-center justify-between">
+          <div className="space-y-2">
+            <div>
+              <SectionHeading
+                subHeading="Feature"
+                heading={githubConfig.title}
+              />
+              <p className="text-muted-foreground text-sm">
+                <b>{githubConfig.username}</b>&apos;s {githubConfig.subtitle}
+              </p>
+            </div>
+            {!isLoading && !hasError && totalContributions > 0 && (
+              <p className="text-primary mt-1 text-sm font-medium">
+                Total:{" "}
+                <span className="font-black">
+                  {totalContributions.toLocaleString()}
+                </span>{" "}
+                contributions
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Content */}
