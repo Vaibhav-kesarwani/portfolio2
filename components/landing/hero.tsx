@@ -13,7 +13,7 @@ import Skill from "../common/skill";
 import CV from "../svg/CV";
 import Chat from "../svg/Chat";
 import { Button } from "../ui/button";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 const buttonIcons = {
   CV: CV,
