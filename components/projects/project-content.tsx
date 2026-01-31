@@ -27,8 +27,6 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
     role,
     team,
     status,
-    challenges,
-    learnings,
   } = frontmatter;
 
   const statusVariant =
@@ -55,16 +53,20 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
         <div className="space-y-4">
           {/* Project Status and Technologies */}
           <div className="flex flex-wrap items-center gap-3">
-            <Badge variant={statusVariant} className="text-sm">
+            <Badge variant={statusVariant} className="text-sm rounded-md">
               {status.charAt(0).toUpperCase() + status.slice(1)}
             </Badge>
             {technologies.slice(0, 3).map((tech) => (
-              <Badge key={tech} variant="outline" className="text-xs">
+              <Badge
+                key={tech}
+                variant="outline"
+                className="text-xs rounded-md"
+              >
                 {tech}
               </Badge>
             ))}
             {technologies.length > 3 && (
-              <Badge variant="outline" className="text-xs">
+              <Badge variant="outline" className="text-xs rounded-md">
                 +{technologies.length - 3} more
               </Badge>
             )}
@@ -102,7 +104,7 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
               <h5 className="text-muted-foreground text-sm font-semibold">
                 Status
               </h5>
-              <Badge variant={statusVariant} className="text-xs">
+              <Badge variant={statusVariant} className="text-xs rounded-md">
                 {status.charAt(0).toUpperCase() + status.slice(1)}
               </Badge>
             </div>
@@ -142,73 +144,14 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
         <Separator />
       </header>
 
-      {/* Technology Stack */}
-      <div className="mb-8">
-        <div className="bg-muted/20 rounded-lg border p-4">
-          <h3 className="mb-3 text-lg font-semibold">Technology Stack</h3>
-          <div className="flex flex-wrap gap-2">
-            {technologies.map((tech) => (
-              <div
-                key={tech}
-                className="bg-muted/50 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium"
-              >
-                <span>{tech}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Challenges and Learnings */}
-      {(challenges?.length || learnings?.length) && (
-        <div className="mb-8 grid gap-6 md:grid-cols-2">
-          {challenges && challenges.length > 0 && (
-            <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-950/20">
-              <h3 className="mb-3 text-lg font-semibold text-yellow-800 dark:text-yellow-200">
-                Key Challenges
-              </h3>
-              <ul className="space-y-2">
-                {challenges.map((challenge, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-2 text-sm text-yellow-700 dark:text-yellow-300"
-                  >
-                    <span className="mt-1 block size-1.5 rounded-full bg-yellow-500 dark:bg-yellow-400" />
-                    {challenge}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {learnings && learnings.length > 0 && (
-            <div className="rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-950/20">
-              <h3 className="mb-3 text-lg font-semibold text-green-800 dark:text-green-200">
-                Key Learnings
-              </h3>
-              <ul className="space-y-2">
-                {learnings.map((learning, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-2 text-sm text-green-700 dark:text-green-300"
-                  >
-                    <span className="mt-1 block size-1.5 rounded-full bg-green-500 dark:bg-green-400" />
-                    {learning}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      )}
-
       {/* Content */}
-      <div className="prose prose-neutral dark:prose-invert max-w-none">
+      <div className="max-w-none">
         <MDXRemote
           source={content}
           components={ProjectComponents}
           options={{
             mdxOptions: {
+              remarkPlugins: [],
               rehypePlugins: [
                 [
                   rehypeHighlight,
@@ -217,6 +160,7 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
                   },
                 ],
               ],
+              format: "mdx",
             },
           }}
         />

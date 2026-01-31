@@ -118,50 +118,6 @@ const ProjectMeta = ({
   );
 };
 
-// Custom Challenges component
-const Challenges = ({ challenges }: { challenges: string[] }) => {
-  return (
-    <div className="my-6 rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-950/20">
-      <h4 className="mb-3 text-lg font-semibold text-yellow-800 dark:text-yellow-200">
-        Key Challenges
-      </h4>
-      <ul className="space-y-2">
-        {challenges.map((challenge, index) => (
-          <li
-            key={index}
-            className="flex items-start gap-2 text-sm text-yellow-700 dark:text-yellow-300"
-          >
-            <span className="mt-1 block size-1.5 rounded-full bg-yellow-500 dark:bg-yellow-400" />
-            {challenge}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-// Custom Learnings component
-const Learnings = ({ learnings }: { learnings: string[] }) => {
-  return (
-    <div className="my-6 rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-950/20">
-      <h4 className="mb-3 text-lg font-semibold text-green-800 dark:text-green-200">
-        Key Learnings
-      </h4>
-      <ul className="space-y-2">
-        {learnings.map((learning, index) => (
-          <li
-            key={index}
-            className="flex items-start gap-2 text-sm text-green-700 dark:text-green-300"
-          >
-            <span className="mt-1 block size-1.5 rounded-full bg-green-500 dark:bg-green-400" />
-            {learning}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
 export const ProjectComponents = {
   // Inherit blog components for basic markdown
   img: ({
@@ -225,6 +181,29 @@ export const ProjectComponents = {
     <p className="text-muted-foreground mb-4 leading-7" {...props}>
       {children}
     </p>
+  ),
+  b: ({
+    children,
+    ...props
+  }: {
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <b className="text-white font-semibold" {...props}>
+      {children}
+    </b>
+  ),
+
+  strong: ({
+    children,
+    ...props
+  }: {
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <strong className="text-white font-semibold" {...props}>
+      {children}
+    </strong>
   ),
   ul: ({
     children,
@@ -344,6 +323,4 @@ export const ProjectComponents = {
   Technology,
   TechStack,
   ProjectMeta,
-  Challenges,
-  Learnings,
 };
