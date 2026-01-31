@@ -79,11 +79,14 @@ export default async function ProjectCaseStudyPage({
 
   return (
     <Container className="py-16">
-      <div className="space-y-12">
+      <div className="space-y-14">
         {/* Back Button */}
         <div>
           <Button variant="ghost" asChild className="group">
-            <Link href="/projects" className="flex items-center space-x-2">
+            <Link
+              href="/projects"
+              className="flex items-center space-x-2 border border-white/10"
+            >
               <ArrowLeft className="size-4" />
               <span>Back to Projects</span>
             </Link>
