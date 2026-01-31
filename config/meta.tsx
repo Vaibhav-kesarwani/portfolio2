@@ -15,7 +15,7 @@ export const siteConfig = {
   title: "Sleek Portfolio",
   description: "Portfolio of @Vaibhav",
   url: process.env.NEXT_PUBLIC_URL || "http://localhost:3000",
-  ogImage: "/meta/opengraph-image.png",
+  ogImage: "/meta/hero.png",
   author: {
     name: about.name,
     twitter: "@vaibhav_k__",
@@ -57,7 +57,7 @@ export const pageMetadata: Record<string, PageMeta> = {
     description:
       "Get in touch with me for collaborations, projects, or opportunities. I'd love to hear from you!",
     keywords: ["contact", "hire", "collaboration", "freelance", "developer"],
-    ogImage: "/assets/logo.png",
+    ogImage: "/images/me.png",
     twitterCard: "summary",
   },
 
