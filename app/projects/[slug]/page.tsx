@@ -85,7 +85,7 @@ export default async function ProjectCaseStudyPage({
           <Button variant="ghost" asChild className="group">
             <Link
               href="/projects"
-              className="flex items-center space-x-2 border border-white/10"
+              className="flex items-center space-x-2 border border-black/10 dark:border-white/10"
             >
               <ArrowLeft className="size-4" />
               <span>Back to Projects</span>
