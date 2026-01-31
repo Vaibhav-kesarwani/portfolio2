@@ -2,10 +2,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ProjectCaseStudyFrontmatter } from "@/types/project";
-import rehypeHighlight from "@shikijs/rehype";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Link } from "next-view-transitions";
 import Image from "next/image";
+import rehypePrism from "rehype-prism-plus";
 import Github from "../svg/Github";
 import Website from "../svg/Website";
 import { ProjectComponents } from "./project-component";
@@ -154,7 +154,7 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
               remarkPlugins: [],
               rehypePlugins: [
                 [
-                  rehypeHighlight,
+                  rehypePrism,
                   {
                     theme: "github-dark",
                   },

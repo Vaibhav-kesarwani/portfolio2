@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import React from "react";
 import { CodeCopyButton } from "../blog/code-copy-button";
+import CodeBlock from "../common/code-block";
 
 // Technology mapping for dynamic components
 const TechnologyComponents: Record<string, React.ComponentType> = {
@@ -178,7 +179,7 @@ export const ProjectComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <p className="text-muted-foreground mb-4 leading-7" {...props}>
+    <p className="text-muted-foreground text-lg mb-4 leading-7" {...props}>
       {children}
     </p>
   ),
@@ -189,11 +190,10 @@ export const ProjectComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <b className="text-white font-semibold" {...props}>
+    <b className="text-black dark:text-white font-semibold" {...props}>
       {children}
     </b>
   ),
-
   strong: ({
     children,
     ...props
@@ -201,7 +201,7 @@ export const ProjectComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <strong className="text-white font-semibold" {...props}>
+    <strong className="text-black dark:text-white font-semibold" {...props}>
       {children}
     </strong>
   ),
@@ -212,7 +212,7 @@ export const ProjectComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <ul className="mb-4 ml-6 list-disc space-y-2" {...props}>
+    <ul className="mb-4 ml-6 list-disc space-y-2 text-lg" {...props}>
       {children}
     </ul>
   ),
@@ -223,7 +223,7 @@ export const ProjectComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <ol className="mb-4 ml-6 list-decimal space-y-2" {...props}>
+    <ol className="mb-4 ml-6 list-decimal space-y-2 text-lg" {...props}>
       {children}
     </ol>
   ),
@@ -234,7 +234,7 @@ export const ProjectComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <li className="text-muted-foreground leading-7" {...props}>
+    <li className="text-muted-foreground leading-7 text-lg" {...props}>
       {children}
     </li>
   ),
@@ -323,4 +323,5 @@ export const ProjectComponents = {
   Technology,
   TechStack,
   ProjectMeta,
+  CodeBlock,
 };

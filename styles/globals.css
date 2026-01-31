@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "prismjs/themes/prism-tomorrow.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -256,4 +257,19 @@
 
 .prose h4 {
   font-size: calc(var(--blog-font-size) * 1.25);
+}
+
+/* Force glass look */
+pre[class*="language-"] {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+code[class*="language-"] {
+  background: transparent !important;
+}
+
+/* ensure visible tokens */
+.token {
+  font-weight: 500;
 }
