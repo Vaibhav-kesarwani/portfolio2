@@ -5,7 +5,7 @@ import { ProjectCaseStudyFrontmatter } from "@/types/project";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Link } from "next-view-transitions";
 import Image from "next/image";
-import rehypePrism from "rehype-prism-plus";
+import rehypePrettyCode from "rehype-pretty-code";
 import Github from "../svg/Github";
 import Website from "../svg/Website";
 import { ProjectComponents } from "./project-component";
@@ -154,9 +154,9 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
               remarkPlugins: [],
               rehypePlugins: [
                 [
-                  rehypePrism,
+                  rehypePrettyCode,
                   {
-                    theme: "github-dark",
+                    keepBackground: false,
                   },
                 ],
               ],
