@@ -38,7 +38,6 @@ export default function CodeBlock({ children, className }: Props) {
   const [copied, setCopied] = useState(false);
 
   const codeEl = isCodeElement(children) ? children : null;
-
   if (!codeEl) return null;
 
   const code = getText(codeEl.props.children);
@@ -59,17 +58,28 @@ export default function CodeBlock({ children, className }: Props) {
 
   return (
     <div
-      className={`relative my-6 overflow-hidden rounded-xl border border-white/10 bg-zinc-900/60 shadow-xl ${
-        className ?? ""
-      }`}
+      className={`relative my-6 overflow-hidden rounded-xl border shadow-sm transition-colors
+      bg-white/30 text-zinc-900 border-zinc-200
+      dark:bg-zinc-900/60 dark:text-zinc-100 dark:border-white/10
+      ${className ?? ""}`}
     >
       {(title || lang) && (
-        <div className="flex items-center justify-between border-b border-white/10 bg-black/40 px-3 py-2 text-xs text-zinc-400">
+        <div
+          className="flex items-center justify-between border-b px-3 py-2 text-xs
+          bg-zinc-50 text-zinc-600 border-zinc-200
+          dark:bg-black/40 dark:text-zinc-400 dark:border-white/10"
+        >
           <div className="flex items-center gap-2">
             <Terminal className="size-3.5 text-zinc-500" />
-            {title && <span className="text-zinc-200">{title}</span>}
+            {title && (
+              <span className="text-zinc-900 dark:text-zinc-200">{title}</span>
+            )}
             {lang && (
-              <span className="rounded bg-white/10 px-1.5 py-0.5 text-[10px] uppercase text-zinc-300">
+              <span
+                className="rounded px-1.5 py-0.5 text-[10px] uppercase
+                bg-zinc-200 text-zinc-700
+                dark:bg-white/10 dark:text-zinc-300"
+              >
                 {lang}
               </span>
             )}
@@ -77,12 +87,15 @@ export default function CodeBlock({ children, className }: Props) {
 
           <button
             onClick={copy}
-            className="flex items-center gap-1 rounded-md px-2 py-1 transition hover:bg-white/10"
+            className="flex items-center gap-1 rounded-md px-2 py-1 transition
+            hover:bg-zinc-200/60 dark:hover:bg-white/10"
           >
             {copied ? (
               <>
-                <Check className="size-3.5 text-green-400" />
-                <span className="text-green-400">Copied</span>
+                <Check className="size-3.5 text-green-600 dark:text-green-400" />
+                <span className="text-green-600 dark:text-green-400">
+                  Copied
+                </span>
               </>
             ) : (
               <>
@@ -94,7 +107,11 @@ export default function CodeBlock({ children, className }: Props) {
         </div>
       )}
 
-      <pre className="overflow-x-auto p-4 text-sm leading-relaxed text-zinc-200">
+      <pre
+        className="overflow-x-auto p-4 text-sm leading-relaxed font-mono
+        bg-transparent text-zinc-900
+        dark:text-zinc-200"
+      >
         {children}
       </pre>
     </div>
