@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Bun from "@/components/technologies/Bun";
 import JavaScript from "@/components/technologies/JavaScript";
 import MongoDB from "@/components/technologies/MongoDB";
@@ -237,6 +238,7 @@ export const ProjectComponents = {
       {children}
     </li>
   ),
+
   // pre: ({
   //   children,
   //   ...props
@@ -304,9 +306,7 @@ export const ProjectComponents = {
   //   );
   // },
 
-  pre: (props: { children: React.ReactNode; [key: string]: unknown }) => (
-    <CodeBlock {...props} />
-  ),
+  pre: (props: any) => <CodeBlock {...props} />,
 
   blockquote: ({
     children,
