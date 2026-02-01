@@ -10,7 +10,6 @@ import TypeScript from "@/components/technologies/TypeScript";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import React from "react";
-import { CodeCopyButton } from "../blog/code-copy-button";
 import CodeBlock from "../common/code-block";
 
 // Technology mapping for dynamic components
@@ -238,72 +237,77 @@ export const ProjectComponents = {
       {children}
     </li>
   ),
-  pre: ({
-    children,
-    ...props
-  }: {
-    children: React.ReactNode;
-    [key: string]: unknown;
-  }) => {
-    const getTextContent = (node: React.ReactNode): string => {
-      if (typeof node === "string") {
-        return node;
-      }
-      if (typeof node === "number") {
-        return String(node);
-      }
-      if (
-        React.isValidElement(node) &&
-        node.props &&
-        typeof node.props === "object"
-      ) {
-        return getTextContent(
-          (node.props as { children?: React.ReactNode }).children,
-        );
-      }
-      if (Array.isArray(node)) {
-        return node.map(getTextContent).join("");
-      }
-      return "";
-    };
+  // pre: ({
+  //   children,
+  //   ...props
+  // }: {
+  //   children: React.ReactNode;
+  //   [key: string]: unknown;
+  // }) => {
+  //   const getTextContent = (node: React.ReactNode): string => {
+  //     if (typeof node === "string") {
+  //       return node;
+  //     }
+  //     if (typeof node === "number") {
+  //       return String(node);
+  //     }
+  //     if (
+  //       React.isValidElement(node) &&
+  //       node.props &&
+  //       typeof node.props === "object"
+  //     ) {
+  //       return getTextContent(
+  //         (node.props as { children?: React.ReactNode }).children,
+  //       );
+  //     }
+  //     if (Array.isArray(node)) {
+  //       return node.map(getTextContent).join("");
+  //     }
+  //     return "";
+  //   };
 
-    const codeText = getTextContent(children);
+  //   const codeText = getTextContent(children);
 
-    return (
-      <div className="group relative mb-4">
-        <pre
-          className="bg-muted/30 overflow-x-auto rounded-lg border p-4 text-sm [&>code]:bg-transparent [&>code]:p-0"
-          {...props}
-        >
-          {children}
-        </pre>
-        <CodeCopyButton code={codeText} />
-      </div>
-    );
-  },
-  code: ({
-    children,
-    className,
-    ...props
-  }: {
-    children: React.ReactNode;
-    className?: string;
-    [key: string]: unknown;
-  }) => {
-    if (className?.includes("language-")) {
-      return (
-        <code className={className} {...props}>
-          {children}
-        </code>
-      );
-    }
+  //   return (
+  //     <div className="group relative mb-4">
+  //       <pre
+  //         className="bg-muted/30 overflow-x-auto rounded-lg border p-4 text-sm [&>code]:bg-transparent [&>code]:p-0"
+  //         {...props}
+  //       >
+  //         {children}
+  //       </pre>
+  //       <CodeCopyButton code={codeText} />
+  //     </div>
+  //   );
+  // },
+  // code: ({
+  //   children,
+  //   className,
+  //   ...props
+  // }: {
+  //   children: React.ReactNode;
+  //   className?: string;
+  //   [key: string]: unknown;
+  // }) => {
+  //   if (className?.includes("language-")) {
+  //     return (
+  //       <code className={className} {...props}>
+  //         {children}
+  //       </code>
+  //     );
+  //   }
 
-    return (
-      <code className="rounded px-2 py-1 font-mono text-sm" {...props}>
-        {children}
-      </code>
-    );
-  },
+  //   return (
+  //     <code className="rounded px-2 py-1 font-mono text-sm" {...props}>
+  //       {children}
+  //     </code>
+  //   );
+  // },
+
+  pre: (props: { children: React.ReactNode; [key: string]: unknown }) => (
+    <CodeBlock {...props} />
+  ),
+
   blockquote: ({
     children,
     ...props
@@ -323,5 +327,4 @@ export const ProjectComponents = {
   Technology,
   TechStack,
   ProjectMeta,
-  CodeBlock,
 };
