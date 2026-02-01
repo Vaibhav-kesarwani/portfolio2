@@ -1,7 +1,6 @@
 import { BlogContent } from "@/components/blog/blog-content";
 import { BlogList } from "@/components/blog/blog-list";
 import Container from "@/components/common/container";
-import FontSizeControls from "@/components/common/font-size-controler";
 import ArrowLeft from "@/components/svg/ArrowLeft";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -80,7 +79,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="space-y-12">
           {/* Back Button */}
           <div>
-            <Button variant="ghost" asChild className="group">
+            <Button
+              variant="ghost"
+              asChild
+              className="group border border-black/10 dark:border-white/10"
+            >
               <Link href="/blog" className="flex items-center space-x-2">
                 <ArrowLeft className="size-4" />
                 <span>Back to Blog</span>
@@ -111,7 +114,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </div>
       </Container>
-      <FontSizeControls />
     </>
   );
 }

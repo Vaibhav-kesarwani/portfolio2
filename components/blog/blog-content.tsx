@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { BlogFrontmatter } from "@/types/blog";
-import rehypeHighlight from "@shikijs/rehype";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
+import rehypePrism from "rehype-prism-plus";
 import Calender from "../svg/Calender";
 import { BlogComponents } from "./blog-component";
 
@@ -38,7 +38,7 @@ export function BlogContent({ frontmatter, content }: BlogContentProps) {
         <div className="space-y-4">
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <Badge key={tag} variant="secondary">
+              <Badge key={tag} variant="secondary" className="rounded-md">
                 {tag}
               </Badge>
             ))}
@@ -60,20 +60,22 @@ export function BlogContent({ frontmatter, content }: BlogContentProps) {
       </header>
 
       {/* Content */}
-      <div className="prose prose-neutral dark:prose-invert max-w-none">
+      <div className="max-w-none">
         <MDXRemote
           source={content}
           components={BlogComponents}
           options={{
             mdxOptions: {
+              remarkPlugins: [],
               rehypePlugins: [
                 [
-                  rehypeHighlight,
+                  rehypePrism,
                   {
                     theme: "github-dark",
                   },
                 ],
               ],
+              format: "mdx",
             },
           }}
         />
