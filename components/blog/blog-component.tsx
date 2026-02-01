@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import CodeBlock from "../common/code-block";
 import { CodeCopyButton } from "./code-copy-button";
 
 export const BlogComponents = {
@@ -64,9 +65,31 @@ export const BlogComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <p className="text-muted-foreground mb-4 leading-7" {...props}>
+    <p className="text-muted-foreground text-lg mb-4 leading-7" {...props}>
       {children}
     </p>
+  ),
+  b: ({
+    children,
+    ...props
+  }: {
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <b className="text-black dark:text-white font-semibold" {...props}>
+      {children}
+    </b>
+  ),
+  strong: ({
+    children,
+    ...props
+  }: {
+    children: React.ReactNode;
+    [key: string]: unknown;
+  }) => (
+    <strong className="text-black dark:text-white font-semibold" {...props}>
+      {children}
+    </strong>
   ),
   // Custom list styling
   ul: ({
@@ -76,7 +99,7 @@ export const BlogComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <ul className="mb-4 ml-6 list-disc space-y-2" {...props}>
+    <ul className="mb-4 ml-6 list-disc space-y-2 text-lg" {...props}>
       {children}
     </ul>
   ),
@@ -87,7 +110,7 @@ export const BlogComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <ol className="mb-4 ml-6 list-decimal space-y-2" {...props}>
+    <ol className="mb-4 ml-6 list-decimal space-y-2 text-lg" {...props}>
       {children}
     </ol>
   ),
@@ -98,7 +121,7 @@ export const BlogComponents = {
     children: React.ReactNode;
     [key: string]: unknown;
   }) => (
-    <li className="text-muted-foreground leading-7" {...props}>
+    <li className="text-muted-foreground leading-7 text-lg" {...props}>
       {children}
     </li>
   ),
@@ -186,4 +209,6 @@ export const BlogComponents = {
       {children}
     </blockquote>
   ),
+
+  CodeBlock,
 };
