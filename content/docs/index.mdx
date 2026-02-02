@@ -1,5 +1,96 @@
 ---
 title: Hello World
 ---
-## Introduction
+
+# Introduction
+
 I love Anime.
+
+# Heading [!toc]
+
+This heading will be hidden from TOC.
+
+# Another Heading [toc]
+
+This heading will **only** be visible in TOC, you can use it to add additional TOC items.
+Like headings rendered in a React component:
+
+# heading [#my-heading-id]
+
+```js
+console.log("Hello World");
+```
+
+```js title="My Title"
+console.log("Hello World");
+```
+
+```ts twoslash lineNumbers
+const a = "Hello World";
+//    ^?
+console.log(a);
+```
+
+```js lineNumbers=4
+function main() {
+  console.log("starts from 4");
+
+  return 0;
+}
+```
+
+```tsx
+// highlight a line
+<div>Hello World</div> // [!code highlight] [!code focus]
+
+// highlight a word
+// [!code word:Fumadocs]
+<div>Fumadocs</div>
+
+// diff styles
+console.log('hewwo'); // [!code --]
+console.log('hello'); // [!code ++]
+
+// focus
+return new ResizeObserver(() => {}) // [!code focus]
+```
+
+```ts tab="Tab 1"
+console.log("A");
+```
+
+```ts tab="Tab 2"
+console.log("B");
+```
+
+```ts tab="Tab 3"
+console.log("A");
+```
+
+```npm
+npm i vaibhavv
+```
+
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+
+<Accordions type="single">
+  <Accordion title="My Title">My Content</Accordion>
+</Accordions>
+
+<AutoTypeTable type="{ hello: string }" />
+
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+<Files>
+  <Folder name="app" defaultOpen>
+    <File name="layout.tsx" />
+    <File name="page.tsx" />
+    <File name="global.css" />
+  </Folder>
+  <Folder name="components">
+    <File name="button.tsx" />
+    <File name="tabs.tsx" />
+    <File name="dialog.tsx" />
+  </Folder>
+  <File name="package.json" />
+</Files>
