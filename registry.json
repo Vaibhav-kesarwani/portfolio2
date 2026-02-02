@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "Vaibhav Lab's",
+  "homepage": "http://localhost:3000/",
+  "items": [
+    {
+      "name": "hello-world",
+      "type": "registry:component",
+      "title": "Hello World",
+      "description": "A simple hello world component.",
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/new-york/hello-world/hello-world.tsx",
+          "type": "registry:component",
+          "target": "components/labs/hello-world.tsx"
+        }
+      ],
+      "author": "Vaibhav Kesarwani"
+    }
+  ]
+}
