@@ -1,5 +1,3 @@
-import Footer from "@/components/common/footer";
-import Navbar from "@/components/common/navbar";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import ThemeFavicon from "@/components/theme-favicon";
 import { generateMetadata as getMetadata } from "@/config/meta";
@@ -40,9 +38,7 @@ export default function RootLayout({
           >
             <ReactLenis root>
               <ThemeFavicon />
-              <Navbar />
               {children}
-              <Footer />
             </ReactLenis>
           </ThemeProvider>
         </body>

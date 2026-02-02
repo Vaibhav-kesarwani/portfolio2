@@ -2,6 +2,9 @@
 @import "tw-animate-css";
 @import "prismjs/themes/prism-tomorrow.css";
 
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -130,11 +133,11 @@
 }
 
 .font-hanken-grotesk {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: "Hanken Grotesk", sans-serif;
 }
 
 .font-hanken-grotesk-italic {
-  font-family: 'Hanken Grotesk Italic', sans-serif;
+  font-family: "Hanken Grotesk Italic", sans-serif;
 }
 
 /* Code block copy button styles */
