@@ -1,26 +1,49 @@
-import { source } from "@/lib/source";
+import { LLMCopyButton, ViewOptions } from "@/components/ai/page-actions";
+import { getPageImage, source } from "@/lib/source";
+import { getMDXComponents } from "@/mdx-components";
+import { getGithubLastEdit } from "fumadocs-core/content/github";
 import {
   DocsBody,
   DocsDescription,
   DocsPage,
   DocsTitle,
+  PageLastUpdate,
 } from "fumadocs-ui/layouts/docs/page";
-import { notFound } from "next/navigation";
-import { getMDXComponents } from "@/mdx-components";
-import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
+  const lastModifiedTime = await getGithubLastEdit({
+    owner: "Vaibhav-kesarwani",
+    repo: "portfolio2",
+    path: `content/docs/${page.path}`,
+  });
+
   const MDX = page.data.body;
+  const gitConfig = {
+    user: "Vaibhav-kesarwani",
+    repo: "portfolio2",
+    branch: "main",
+  };
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsDescription className="mb-0">
+        {page.data.description}
+      </DocsDescription>
+      <div className="flex flex-row gap-2 items-center border-b pb-6">
+        <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
+        <ViewOptions
+          markdownUrl={`${page.url}.mdx`}
+          githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/docs/content/docs/${page.path}`}
+        />
+      </div>
       <DocsBody>
         <MDX
           components={getMDXComponents({
@@ -29,6 +52,13 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
           })}
         />
       </DocsBody>
+
+      {lastModifiedTime && (
+        <PageLastUpdate
+          date={lastModifiedTime}
+          className="font-semibold mt-5"
+        />
+      )}
     </DocsPage>
   );
 }
@@ -47,5 +77,8 @@ export async function generateMetadata(
   return {
     title: page.data.title,
     description: page.data.description,
+    openGraph: {
+      images: getPageImage(page).url,
+    },
   };
 }
