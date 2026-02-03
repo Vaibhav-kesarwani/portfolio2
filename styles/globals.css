@@ -4,7 +4,7 @@
 
 @import "fumadocs-ui/css/black.css";
 @import "fumadocs-ui/css/preset.css";
-@import 'fumadocs-twoslash/twoslash.css';
+@import "fumadocs-twoslash/twoslash.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -249,4 +249,14 @@ code[class*="language-"] {
 /* ensure visible tokens */
 .token {
   font-weight: 500;
+}
+
+::selection {
+  background: #e0e0e0;
+  color: #3f3f3f;
+}
+
+::-moz-selection {
+  background: #e0e0e0;
+  color: #3f3f3f;
 }
