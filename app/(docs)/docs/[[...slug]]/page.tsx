@@ -1,13 +1,12 @@
 import { LLMCopyButton, ViewOptions } from "@/components/ai/page-actions";
+import { LastModified } from "@/components/docs/last-modified";
 import { getPageImage, source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
-import { getGithubLastEdit } from "fumadocs-core/content/github";
 import {
   DocsBody,
   DocsDescription,
   DocsPage,
   DocsTitle,
-  PageLastUpdate,
 } from "fumadocs-ui/layouts/docs/page";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import type { Metadata } from "next";
@@ -18,17 +17,14 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
-  const slug = params.slug ?? [];
+  // const lastModifiedTime = await getGithubLastEdit({
+  //   owner: "Vaibhav-kesarwani",
+  //   repo: "portfolio2",
+  //   path: `content/docs/${page.path}`,
+  // });
 
-  const rootFolder = slug[0] ?? "docs";
-  const relativePath = page.path.replace(`${rootFolder}/`, "");
-  const githubPath = `content/docs/${rootFolder}/${relativePath}`;
-
-  const lastModifiedTime = await getGithubLastEdit({
-    owner: "Vaibhav-kesarwani",
-    repo: "portfolio2",
-    path: githubPath,
-  });
+  // Access lastModified from page data (available when lastModifiedTime: 'git' is enabled)
+  const lastModified = (page.data as { lastModified?: number }).lastModified;
 
   const MDX = page.data.body;
   const gitConfig = {
@@ -39,16 +35,23 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription className="mb-0">
+      <DocsTitle className="text-4xl font-bold">{page.data.title}</DocsTitle>
+      <DocsDescription className="mb-0 text-base font-medium">
         {page.data.description}
       </DocsDescription>
-      <div className="flex flex-row gap-2 items-center border-b pb-6">
+      <div className="flex flex-wrap items-center gap-2 border-b pt-2 pb-6">
         <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
         <ViewOptions
           markdownUrl={`${page.url}.mdx`}
           githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/docs/content/docs/${page.path}`}
         />
+
+        {lastModified && (
+          <LastModified
+            className="order-last w-full pt-2 sm:order-0 sm:ml-auto sm:w-auto sm:pt-0 font-semibold"
+            lastModified={lastModified}
+          />
+        )}
       </div>
       <DocsBody>
         <MDX
@@ -58,13 +61,6 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
           })}
         />
       </DocsBody>
-
-      {lastModifiedTime && (
-        <PageLastUpdate
-          date={lastModifiedTime}
-          className="font-semibold mt-5"
-        />
-      )}
     </DocsPage>
   );
 }
