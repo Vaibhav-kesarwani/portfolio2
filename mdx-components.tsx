@@ -12,6 +12,7 @@ import * as TabsComponents from "fumadocs-ui/components/tabs";
 import defaultComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
 import { Bold } from "./components/mdx/bold";
+import { ChangelogEntry } from "./components/docs/changelog-entry";
 
 const generator = createGenerator({
   // set a cache, necessary for serverless platform like Vercel
@@ -25,6 +26,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...TabsComponents,
     Accordion,
     Accordions,
+    ChangelogEntry,
     AutoTypeTable: (props) => (
       <AutoTypeTable {...props} generator={generator} />
     ),
