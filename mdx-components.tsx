@@ -5,11 +5,13 @@ import {
   createGenerator,
 } from "fumadocs-typescript";
 import { AutoTypeTable } from "fumadocs-typescript/ui";
+import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
 import { ImageZoom } from "fumadocs-ui/components/image-zoom";
 import * as TabsComponents from "fumadocs-ui/components/tabs";
 import defaultComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
+import { Bold } from "./components/mdx/bold";
 
 const generator = createGenerator({
   // set a cache, necessary for serverless platform like Vercel
@@ -21,6 +23,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...defaultComponents,
     ...Twoslash,
     ...TabsComponents,
+    Accordion,
+    Accordions,
     AutoTypeTable: (props) => (
       <AutoTypeTable {...props} generator={generator} />
     ),
@@ -31,6 +35,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
       </CodeBlock>
     ),
     img: (props) => <ImageZoom {...(props as any)} />,
+    strong: (props: any) => <Bold {...props} />,
+    b: (props: any) => <Bold {...props} />,
     ...components,
   };
 }

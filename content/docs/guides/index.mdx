@@ -1,96 +1,76 @@
 ---
-title: Hello World
+title: Introduction
+description: Labs is a collection of beautifully designed components with modern animations built with React, Tailwind CSS, and Framer Motion.
+icon: Album
 ---
 
-# Introduction
+# Welcome to Lab's
 
-I love Anime.
+**Lab's** is a modern component library that brings together the best of React, Tailwind CSS,
+and Framer Motion to create beautiful, accessible, and performant user interfaces.
+Each component is carefully crafted with modern animations and thoughtful design principles.
 
-# Heading [!toc]
+## Key Features
 
-This heading will be hidden from TOC.
+- **shadcn CLI Compatible**: Install components using the familiar shadcn CLI
+- **TypeScript First**: Full type safety with comprehensive TypeScript support
+- **Accessible by Default**: Built with accessibility best practices
+- **Dark Mode Support**: All components work seamlessly in light and dark themes
+- **Customizable**: Easy to customize with Tailwind CSS classes
+- **Performance Optimized**: Built with performance in mind using modern React patterns
 
-# Another Heading [toc]
+## Get Started
 
-This heading will **only** be visible in TOC, you can use it to add additional TOC items.
-Like headings rendered in a React component:
+<Cards>
+<Card
+  href="/docs/guides/installation"
+  title="Installation Guide"
+>
 
-# heading [#my-heading-id]
+Learn how to install Lab's components using shadcn CLI or manual installation methods.
 
-```js
-console.log("Hello World");
-```
+</Card>
 
-```js title="My Title"
-console.log("Hello World");
-```
+<Card
+  href="/docs/components"
+  title="Browse All Components"
+>
+  Explore all available components with live demos and documentation.
+</Card>
+</Cards>
 
-```ts twoslash lineNumbers
-const a = "Hello World";
-//    ^?
-console.log(a);
-```
+## Frequently Asked Questions
 
-```js lineNumbers=4
-function main() {
-  console.log("starts from 4");
-
-  return 0;
-}
-```
-
-```tsx
-// highlight a line
-<div>Hello World</div> // [!code highlight] [!code focus]
-
-// highlight a word
-// [!code word:Fumadocs]
-<div>Fumadocs</div>
-
-// diff styles
-console.log('hewwo'); // [!code --]
-console.log('hello'); // [!code ++]
-
-// focus
-return new ResizeObserver(() => {}) // [!code focus]
-```
-
-```ts tab="Tab 1"
-console.log("A");
-```
-
-```ts tab="Tab 2"
-console.log("B");
-```
-
-```ts tab="Tab 3"
-console.log("A");
-```
-
-```npm
-npm i vaibhavv
-```
-
-import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
-
-<Accordions type="single">
-  <Accordion title="My Title">My Content</Accordion>
+<Accordions>
+  <Accordion id="is-labs-free" title="Is Lab's free to use?">
+    Yes! Lab's is completely free and open source. You can use it in personal
+    and commercial projects.
+  </Accordion>
+  <Accordion
+    id="do-i-need-to-know-framer-motion"
+    title="Do I need to know Framer Motion to use Lab's Compoents?"
+  >
+    No! All animations are built-in. You can use components without any Framer
+    Motion knowledge.
+  </Accordion>
+  <Accordion
+    id="can-i-customize-the-components"
+    title="Can I customize the components?"
+  >
+    Absolutely! All components are built with Tailwind CSS and can be customized
+    using standard Tailwind classes.
+  </Accordion>
+  <Accordion
+    id="does-components-work-with-nextjs"
+    title="Does Lab's work with Next.js?"
+  >
+    Yes! It works with any React framework including Next.js, Vite and more.
+  </Accordion>
 </Accordions>
 
-<AutoTypeTable type="{ hello: string }" />
+## Contributing
 
-import { File, Folder, Files } from 'fumadocs-ui/components/files';
+We welcome contributions to Lab's! Whether you want to add new components,
+improve existing ones, or fix bugs, your contributions help make Lab's better day by day.
 
-<Files>
-  <Folder name="app" defaultOpen>
-    <File name="layout.tsx" />
-    <File name="page.tsx" />
-    <File name="global.css" />
-  </Folder>
-  <Folder name="components">
-    <File name="button.tsx" />
-    <File name="tabs.tsx" />
-    <File name="dialog.tsx" />
-  </Folder>
-  <File name="package.json" />
-</Files>
+Check out our [contributing guide](/docs/guides/contribution) for more detailed information.

@@ -12,7 +12,7 @@ export default function Logo() {
         className="h-10 w-10 rounded-md border border-gray-200 bg-blue-300 transition-all duration-300 ease-in-out hover:scale-90 dark:bg-yellow-300"
       />
       <div className="text-xl font-bold text-black/80 dark:text-white/90">
-        Vaibhav <span className="text-blue-400 dark:text-yellow-300">Lab&apos;s</span>
+        Vaibhav <span className="text-blue-500 dark:text-yellow-300">Lab&apos;s</span>
       </div>
     </div>
   );
