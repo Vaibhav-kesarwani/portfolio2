@@ -18,10 +18,16 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
+  const slug = params.slug ?? [];
+
+  const rootFolder = slug[0] ?? "docs";
+  const relativePath = page.path.replace(`${rootFolder}/`, "");
+  const githubPath = `content/docs/${rootFolder}/${relativePath}`;
+
   const lastModifiedTime = await getGithubLastEdit({
     owner: "Vaibhav-kesarwani",
     repo: "portfolio2",
-    path: `content/docs/${page.path}`,
+    path: githubPath,
   });
 
   const MDX = page.data.body;
