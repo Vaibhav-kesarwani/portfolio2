@@ -91,7 +91,7 @@ export async function generateMetadata(
   };
 
   return {
-    title: page.data.title,
+    title: page.data.title + " | Lab's UI",
     description: page.data.description ?? "Modern Component's by Vaibhav",
     openGraph: {
       url: `/docs/${page.slugs.join("/")}`,
