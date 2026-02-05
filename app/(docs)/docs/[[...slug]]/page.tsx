@@ -1,4 +1,5 @@
 import { LLMCopyButton, ViewOptions } from "@/components/ai/page-actions";
+import { Contributor } from "@/components/docs/contributor";
 import { LastModified } from "@/components/docs/last-modified";
 import { getPageImage, source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
@@ -34,7 +35,14 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   };
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
+    <DocsPage
+      toc={page.data.toc}
+      full={page.data.full}
+      tableOfContent={{
+        style: "clerk",
+        footer: <Contributor />,
+      }}
+    >
       <DocsTitle className="text-4xl font-bold">{page.data.title}</DocsTitle>
       <DocsDescription className="mb-0 text-base font-medium">
         {page.data.description}
