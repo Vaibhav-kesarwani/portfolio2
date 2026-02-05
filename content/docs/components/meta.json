@@ -1,6 +1,6 @@
 {
   "title": "Components",
-  "description": "Modern, animated UI components built with React, Gsap and Framer Motion",
+  "description": "Modern UI components built with React, Gsap and Framer Motion",
   "icon": "LayoutDashboard",
   "root": true,
   "pages": [
