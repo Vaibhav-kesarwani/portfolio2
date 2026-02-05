@@ -1,6 +1,122 @@
 ---
 title: Lab's UI
 description: Use the production ready React components with modern animations. Buttons, inputs, modals, cards, and more. Built with TypeScript, Framer Motion, Gsap and Tailwind CSS. Fully accessible and customizable.
+icon: Rocket
 ---
 
-Hello
+# Installation
+
+Get started with **Lab's** in seconds. Use the shadcn CLI or install manually.
+
+## Requirements
+
+Before installing Labs, make sure your project meets these requirements:
+
+- **Node.js** 18 or later
+- **React** 18+ or **Next.js 13+ (App Router recommended)**
+- **Tailwind CSS** configured
+- **TypeScript** (recommended)
+
+## Method 1: Install with shadcn CLI (Recommended)
+
+Labs is fully compatible with the shadcn registry system.
+
+### 1. Initialize shadcn
+
+```bash
+npx shadcn@latest init
+```
+
+### 2. Install shadcn components
+
+```bash
+npx shadcn@latest --all
+```
+
+### 3. Add Labs registry
+
+```bash
+npx shadcn@latest registry add https://vaibhavkesarwani.vercel.app/registry.json
+```
+
+### 4. Install a component
+
+```bash
+npx shadcn@latest add http://vaibhavkesarwani.vercel.app/r/hello-world.json
+```
+
+## Method 2: Manual Installation
+
+If you don't want to use the CLI, you can copy components manually.
+
+### 1. Install dependencies
+
+```npm
+npm install clsx tailwind-merge lucide-react
+```
+
+### 2. Add utility
+
+```ts title="lib/utils.ts"
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: any[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+### 3. Copy the component
+
+```tsx title="components/labs/hello-world.tsx"
+import { Button } from "@/components/ui/button";
+
+export function HelloWorld() {
+  return <Button>Hello World</Button>;
+}
+```
+
+## Use Components
+
+Import and use the installed components in your React applications
+
+```tsx title="page.tsx"
+import { HelloWorld } from "@/components/labs/hello-world";
+
+export default function Page() {
+  return <HelloWorld />;
+}
+```
+
+## Customization
+
+All components are customizable via:
+
+- Tailwind CSS utility classes
+- CSS variables for theming
+- Component props for behavior and styling
+
+Components are tree-shakeable, TypeScript-first, and accessible by default.
+
+<Cards>
+  <Card
+    title="Browse All Components"
+    href="/docs/components"
+    description="View all Elegant components"
+  />
+  <Card
+    title="Form Components"
+    href="/docs/components"
+    description="Inputs, selects, and form elements"
+  />
+  <Card
+    title="Introduction to Lab's"
+    href="/docs/guides"
+    description="Learn how the Lab's work"
+  />
+  <Card
+    title="Installation Guide"
+    href="/docs/guides/installation"
+    description="Get started with Lab's"
+  />
+</Cards>
