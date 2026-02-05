@@ -9,7 +9,8 @@ function generateFavicon(bg: string) {
   canvas.width = size;
   canvas.height = size;
 
-  const ctx = canvas.getContext("2d")!;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
 
   ctx.clearRect(0, 0, size, size);
   ctx.beginPath();
@@ -30,14 +31,18 @@ function generateFavicon(bg: string) {
     const s = size - padding * 2;
     ctx.drawImage(img, padding, padding, s, s);
 
-    const link =
-      document.querySelector("link[rel~='icon']") ||
-      document.createElement("link");
+    let link = document.querySelector(
+      "link[rel~='icon']"
+    ) as HTMLLinkElement | null;
 
-    link.rel = "icon";
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+
     link.type = "image/png";
     link.href = canvas.toDataURL("image/png");
-    document.head.appendChild(link);
   };
 }
 
