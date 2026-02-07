@@ -1,0 +1,30 @@
+---
+title: CircularText
+description: hello world
+---
+
+<Tabs items={["Preview", "Code"]}>
+  <Tab value="Preview">
+    <div className="flex items-center justify-center min-h-85">
+      <CircularTextDemo />
+    </div>
+  </Tab>
+  <Tab value="Code">
+  <div className='z-10'>
+    ```tsx title="example.tsx"
+import CircularText from "../components/circular-text/circular-text";
+
+export default function CircularTextDemo() {
+      return (
+        <CircularText
+          text="REACT*BITS*COMPONENTS*"
+          onHover="speedUp"
+          spinDuration={20}
+          className="custom-class"
+        />
+      );
+}
+    ```
+    </div>
+  </Tab>
+</Tabs>
