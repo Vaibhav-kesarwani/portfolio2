@@ -11,7 +11,7 @@
       "dependencies": ["motion"],
       "files": [
         {
-          "path": "registry/components/circular-text/circular-text.tsx",
+          "path": "registry/components/circular-text.tsx",
           "type": "registry:component",
           "target": "components/labs/circular-text.tsx"
         }
