@@ -38,7 +38,7 @@ export default function Sponsor() {
           <Button
             size="lg"
             className="
-              gap-2 font-semibold
+              gap-2 font-semibold cursor-pointer
               bg-blue-300 text-black hover:bg-blue-400
               dark:bg-yellow-300 dark:text-black dark:hover:bg-yellow-400
             "
