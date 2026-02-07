@@ -1,6 +1,6 @@
-import CircularText from "../components/circluar-text/circluar-text";
+import CircularText from "../components/circular-text/circular-text";
 
-export default function ExampleCircluarText() {
+export default function CircularTextDemo() {
   return (
     <CircularText
       text="REACT*BITS*COMPONENTS*"

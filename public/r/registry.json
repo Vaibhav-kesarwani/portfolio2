@@ -4,16 +4,16 @@
   "homepage": "https://vaibhavkesarwani.vercel.app/",
   "items": [
     {
-      "name": "circluar-text",
+      "name": "circular-text",
       "type": "registry:component",
-      "title": "Circluar Text",
-      "description": "Circluar text animation using the framer motion",
+      "title": "Circular Text",
+      "description": "Circular text animation using the framer motion",
       "dependencies": ["motion"],
       "files": [
         {
-          "path": "registry/components/circluar-text/circluar-text.tsx",
+          "path": "registry/components/circular-text/circular-text.tsx",
           "type": "registry:component",
-          "target": "components/labs/circluar-text.tsx"
+          "target": "components/labs/circular-text.tsx"
         }
       ],
       "author": "Vaibhav Kesarwani"
