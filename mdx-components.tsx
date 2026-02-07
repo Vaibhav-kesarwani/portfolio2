@@ -8,13 +8,16 @@ import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { Accordion, Accordions } from "fumadocs-ui/components/accordion";
 import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
 import { ImageZoom } from "fumadocs-ui/components/image-zoom";
+import { Step, Steps } from "fumadocs-ui/components/steps";
 import * as TabsComponents from "fumadocs-ui/components/tabs";
 import defaultComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
-import { Bold } from "./components/mdx/bold";
 import { ChangelogEntry } from "./components/docs/changelog-entry";
+import { Bold } from "./components/mdx/bold";
+import { ButtonDependency } from "./components/mdx/button-dependeny";
+import { ComponentPreview } from "./components/mdx/component-preview";
+import ComponentSource from "./components/mdx/component-source";
 import Sponsor from "./components/mdx/sponsor";
-import { registryExamples } from "@/registry/index";
 
 const generator = createGenerator({
   // set a cache, necessary for serverless platform like Vercel
@@ -26,10 +29,15 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...defaultComponents,
     ...Twoslash,
     ...TabsComponents,
-    ...registryExamples,
+    // ...registryExamples,
+    ComponentPreview,
+    ComponentSource,
+    ButtonDependency,
     Accordion,
     Accordions,
     ChangelogEntry,
+    Steps,
+    Step,
     Sponsor,
     AutoTypeTable: (props) => (
       <AutoTypeTable {...props} generator={generator} />

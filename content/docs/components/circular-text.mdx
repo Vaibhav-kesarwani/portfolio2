@@ -1,30 +1,70 @@
 ---
 title: CircularText
-description: hello world
+description: Animated circular text component for modern UI layouts.
 ---
 
-<Tabs items={["Preview", "Code"]}>
-  <Tab value="Preview">
-    <div className="flex items-center justify-center min-h-85">
-      <CircularTextDemo />
-    </div>
-  </Tab>
-  <Tab value="Code">
-  <div className='z-10'>
-    ```tsx title="example.tsx"
-import CircularText from "../components/circular-text/circular-text";
+## Preview
 
-export default function CircularTextDemo() {
-      return (
-        <CircularText
-          text="REACT*BITS*COMPONENTS*"
-          onHover="speedUp"
-          spinDuration={20}
-          className="custom-class"
-        />
-      );
-}
+<ComponentPreview name="CircularTextDemo" />
+
+## Features
+
+- Smooth circular text animation  
+- Fully **customizable** text content  
+- Lightweight and performant  
+- Works with light and dark themes  
+- Easy drop-in usage  
+
+## Installation
+
+<Tabs defaultValue="cli">
+  <TabsList>
+    <TabsTrigger value="cli">CLI</TabsTrigger>
+    <TabsTrigger value="manual">Manual</TabsTrigger>
+  </TabsList>
+  <TabsContent value="cli">
+    ```npm 
+    npx shadcn@latest add https://vaibhavkesarwani.vercel.app/r/circular-text.json 
     ```
-    </div>
-  </Tab>
+  </TabsContent>
+  <TabsContent value="manual">
+    <Steps>
+      <Step>Import the dependecies</Step>
+      ```npm
+      npm install motion
+      ```
+
+      <Step>Copy and paste the following code into your project.</Step>
+      <ComponentSource name="CircularTextDemo" />
+
+      <Step>Update the import paths to match your project setup.</Step>
+    </Steps>
+
+  </TabsContent>
 </Tabs>
+
+### Usage
+
+```tsx
+import CircularText from "@/components/ui/circular-text";
+```
+
+```tsx
+<CircularText
+  text="VAIBHAV*LABS*COMPONENTS*"
+  onHover="speedUp"
+  spinDuration={20}
+  className="custom-class"
+/>
+```
+
+### Props
+
+<AutoTypeTable
+  path="registry/components/circular-text/circular-text.ts"
+  name="CircularTextProps"
+/>
+
+### Dependencies
+
+<ButtonDependency items={[{ name: "motion", href: "https://motion.dev" }]} />
