@@ -1,7 +1,17 @@
 import fs from "fs";
 import path from "path";
 
-const registryDir = path.join(process.cwd(), "registry/example");
+const REGISTRY_FOLDERS = [
+  {
+    dir: "registry/example",
+    importBase: "./example",
+  },
+  {
+    dir: "registry/components",
+    importBase: "./components",
+  },
+];
+
 const outputFile = path.join(process.cwd(), "registry/index.ts");
 
 function toComponentName(file: string) {
@@ -13,49 +23,57 @@ function toComponentName(file: string) {
 }
 
 function generate() {
-  const files = fs
-    .readdirSync(registryDir)
-    .filter((f) => f.endsWith(".tsx") || f.endsWith(".ts"));
-
   let componentImports = "";
-  const fsImports = `import fs from "fs";\nimport path from "path";\n\n`;
   let sourceConsts = "";
   let exports = "export const registryExamples = {\n";
 
-  for (const file of files) {
-    const name = toComponentName(file);
-    const baseName = file.replace(/\.(tsx|ts)$/, "");
-    const importPath = `./example/${baseName}`;
-    const filePath = `registry/example/${file}`;
+  const fsImports = `
+import fs from "fs";
+import path from "path";
 
-    // Component import
-    componentImports += `import ${name} from "${importPath}";\n`;
+`;
 
-    // Source const
-    sourceConsts += `const ${name}Source = fs.readFileSync(
+  for (const folder of REGISTRY_FOLDERS) {
+    const registryDir = path.join(process.cwd(), folder.dir);
+
+    if (!fs.existsSync(registryDir)) continue;
+
+    const files = fs
+      .readdirSync(registryDir)
+      .filter((f) => f.endsWith(".tsx") || f.endsWith(".ts"));
+
+    for (const file of files) {
+      const name = toComponentName(file);
+      const baseName = file.replace(/\.(tsx|ts)$/, "");
+
+      const importPath = `${folder.importBase}/${baseName}`;
+      const filePath = `${folder.dir}/${file}`;
+
+      // Import component
+      componentImports += `import ${name} from "${importPath}";\n`;
+
+      // Read source
+      sourceConsts += `const ${name}Source = fs.readFileSync(
   path.join(process.cwd(), "${filePath}"),
   "utf-8"
 );\n\n`;
 
-    // Export mapping
-    exports += `  ${name}: {\n`;
-    exports += `    component: ${name},\n`;
-    exports += `    source: ${name}Source,\n`;
-    exports += `  },\n`;
+      // Export mapping
+      exports += `  ${name}: {\n`;
+      exports += `    component: ${name},\n`;
+      exports += `    source: ${name}Source,\n`;
+      exports += `  },\n`;
+    }
   }
 
   exports += "};\n";
 
   const finalContent =
-    componentImports +
-    "\n" +
-    fsImports +
-    sourceConsts +
-    exports;
+    componentImports + "\n" + fsImports + sourceConsts + exports;
 
   fs.writeFileSync(outputFile, finalContent);
 
-  console.log("✅ Registry generated (fs source mode)!");
+  console.log("✅ Registry generated (examples + components)!");
 }
 
 generate();
