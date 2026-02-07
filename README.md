@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
 
-## Getting Starteds
+Welcome to my **portfolio!**
 
-First, run the development server:
+This project showcases my work, skills, and projects in Full Stack Development, AI, and Modern Web Technologies.
+
+![me](/public/meta/hero.png)
+
+## Live Demo
+
+👉 [View Portfolio Live](https://vaibhavkesarwani.vercel.app/)
+
+## Features
+
+- Modern, fast, and responsive UI
+- Dark / Light theme support
+- Fully mobile responsive
+- Reusable component architecture
+- AI + Full Stack project showcase
+- Resume download support
+- Contact form / social links integration
+- Lab's UI
+
+## Tech Stack
+
+### Frontend
+
+- Next.js
+- React.js
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+
+### Tools & Platforms
+
+- Git & GitHub
+- Vercel Deployment
+- VS Code
+
+## Getting Started
+
+#### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Vaibhav-kesarwani/portfolio.git
+cd portfolio
+```
+
+#### 2. Install Dependencies
+
+```bash
+pnpm install
+```
+
+#### 3. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open -> `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Sections Included
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Home
+- About
+- Blogs
+- Projects
+- Contact
+- Lab's UI
 
-## Learn More
+## Goals of This Portfolio
 
-To learn more about Next.js, take a look at the following resources:
+- Showcase production ready projects
+- Demonstrate UI/UX + engineering quality
+- Highlight problem solving and full stack skills
+- Present real world deployable applications
+- Blogs on the latest motion designs.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Contributions make this project better and help build an amazing open-source community.
 
-## Deploy on Vercel
+If you'd like to contribute, please check out our [Contribution Guide](https://github.com/Vaibhav-kesarwani/portfolio/blob/main/CONTRIBUTING.md) to get started with setup instructions, guidelines, and best practices.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We welcome your ideas, bug fixes, and new features!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the **MIT License**.
+
+Feel free to use, modify, and share it. See the [LICENSE](https://github.com/Vaibhav-kesarwani/portfolio/blob/main/LICENSE) file for details.
+
+## Contact
+
+If you have any suggestions, questions, or feedback, feel free to reach out:
+
+- Email: vaibhavkesarwani100@gmail.com
+- GitHub: @Vaibhav-kesarwani
+- Portfolio: [vaibhav](https://vaibhavkesarwani.vercel.app/)
+
+## Support & Share
+
+If you find this repository helpful:
+
+- Star it on GitHub
+- Fork it to build your own version
+- Share it with your developer friends and communities!
