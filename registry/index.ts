@@ -1,5 +1,5 @@
-import HelloWorld from "./example/hello-world";
+import ExampleCircluarText from "./example/example-circluar-text";
 
 export const registryExamples = {
-  HelloWorld,
+  ExampleCircluarText,
 };
