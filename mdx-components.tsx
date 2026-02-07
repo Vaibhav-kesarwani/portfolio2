@@ -14,6 +14,7 @@ import type { MDXComponents } from "mdx/types";
 import { Bold } from "./components/mdx/bold";
 import { ChangelogEntry } from "./components/docs/changelog-entry";
 import Sponsor from "./components/mdx/sponsor";
+import { registryExamples } from "@/registry/index";
 
 const generator = createGenerator({
   // set a cache, necessary for serverless platform like Vercel
@@ -25,6 +26,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...defaultComponents,
     ...Twoslash,
     ...TabsComponents,
+    ...registryExamples,
     Accordion,
     Accordions,
     ChangelogEntry,
