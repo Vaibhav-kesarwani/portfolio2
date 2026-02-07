@@ -1,4 +1,4 @@
-import CircularText from "../components/circular-text/circular-text";
+import CircularText from "../components/circular-text";
 
 export default function CircularTextDemo() {
   return (
