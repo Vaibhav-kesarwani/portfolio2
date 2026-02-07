@@ -8,6 +8,7 @@ import {
   useMotionValue,
 } from "motion/react";
 import React, { useEffect } from "react";
+
 interface CircularTextProps {
   text: string;
   spinDuration?: number;
